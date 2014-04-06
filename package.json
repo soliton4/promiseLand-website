@@ -1,0 +1,30 @@
+{
+  "name": "promiseland-website",
+  "version": "0.0.1",
+  "author": {
+    "name": "Matthias Behrens",
+    "email": "matthias.behrens@gmail.com"
+  },
+  "description": "promiseLand is a very promising Language",
+  "main": "./lib/app.js"
+  , "dependencies" : {
+    "restartable"   :  ">= 0.0.14",
+    "express" :  "3.x",
+    "node-mirror": ">= 0.1.26",
+    "optimist": "*"
+  },  
+  "keywords": [
+    "promiseLand"
+    , "promiseland"
+    , "website"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/soliton4/promiseLand-website"
+  },
+  "license": "gpl",
+  "engines": {
+    "node": ">=0.10"
+  },
+  "readmeFilename": "README.md"
+}

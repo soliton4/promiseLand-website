@@ -1,0 +1,51 @@
+<html>
+  <head>
+    <title>promiseLand</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body class="body">
+    <div class="head">
+      <div class="mainTitle">pr*miseLand</div>
+      <div class="secundaryTitle">PromiseLand is a very promising Language</div>
+      <div class="secundaryTitle">aka the <span class="highlighted">Promise</span> <span class="highlighted">L</span>anguage <span class="highlighted">and</span> more</div>
+    </div>
+    <div class="features">
+      <div class="featuretext">promiseLand aims to be to javaScript, what c++ is to c, or less to css</div>
+      
+      <div class="featurehead"><span class="enumeration resolved">*</span>promiseLand ⊃ javaScript strict mode (for the most part)</div>
+      <div class="featurebody">The most important feature of promiseLand may be, that you dont need to learn a new programming Language to use it. It is basically javaScript and for the most existing javaScript there will be no noticable difference in the way it executes.<br> If you dont use any of the promiseLand features basic javaScript is being generated. you may encounter less error messages since promiseLand is more forgiving when it comes to variable declaration. And there are other tiny differences, but promiseLand is designed to be backwards compatible to javaScript. Keep in mind that c++ is not 100% compatible to c, but you can still use c style programming without thinking about the differences. The same applies to promiseLand</div>
+      
+      <div class="featurehead"><span class="enumeration progress">*</span>*promise</div>
+      <div class="featurebody">Dereference javascript promises with the * operator. just like you are used to in c or c++ you can use the dereferencing operator to access the resolved value of a Promise. the promiseLand Compiler will generate the appropriate code that runs assynchron, but you can programm it in a way that looks like it should - as a representation of your Application Logic.<br>
+      if a promise dereferencing is detected within a function, the function will itself return a promise. You can force the creation of a promising function by adding a "*" between the parameter part and the body of a function. example function promisingFunction()*{ return "something"; }</div>
+      
+      <div class="featurehead"><span class="enumeration resolved">*</span>[function]</div>
+      <div class="featurebody">The function keyword is optional. One of the goals of promiseLand is to prevent unneccessary type work. since the function keyword is clearly not neccessary to identyfy a function, you can simply leave it away. a small but powerful feature.</div>
+
+      <div class="featurehead"><span class="enumeration resolved">*</span>require "modulename"</div>
+      <div class="featurebody">A require keyword has been added to the language. It works like a operator and executes assynchron. promiseLand modules can be used from every commonjs or amd compatible loader. It will utilize what ever require function is present to provide a simple and unified interface. require "stringexpression"</div>
+
+      <div class="featurehead"><span class="enumeration progress">*</span>"string<br>continuation"</div>
+      <div class="featurebody">Have you ever wondered why you can not multiline string literals in javaScript? Well you are not the only one.</div>
+      
+      <div class="featurehead"><span class="enumeration progress">*</span>clientCode(); serverCode(); clientCode(); whereEverCode();</div>
+      <div class="featurebody">By providing some extra hints to a function definition you can force the function to allways be executed server sided or client sided. But this feature is actually more generic and powerful than that.<br>
+      promiseLand introduces the concept of execution profiles which in essence represent the runtime environment of the code. A profile can be node.js or browser code, or another instance of node.js / your javaScript implementation of choice, or a node.js cluster, or a worker thread. The profile name is a string literal which decides where the code is being executed. Since promiseLand has the assynchron execution concept build in, its no problem to compile code, that waits till a function in another runtime profile is executed.<br>
+      How does it work? You are in control! promiseLand provides a very low level interface to this feature. There is a api that will send strings and accepts strings from other profiles. Base Classes are provided to help you implement the event emitter neccessary to programm the api. Everything else is up to you. If you want to use socket.io to transport the messages or hire an army of postman to deliver them is totally up to you.<br>And this is inteded. Since the interface is as lowlevel as possible, promiseLand profiles can be as flexible as possible.</div>
+      
+      <div class="featurehead"><span class="enumeration pending">*</span>dynamic type safety</div>
+      <div class="featurebody">promiseLand will have a way to implement typesafe code. A type keyword that works similar as the var keyword may be the best way to provide types. once a type is beeing assigned to a name (variable) it can not change anymore. so you can never use typenames like variable names.<br>Another rule will be that you can not store typed Objects within untyped Objects. That makes it possible for the typed code to interact with javascript from within promiseLand, but impossible to interact from javascript outside promiseLand with typed code.</div>
+
+      <div class="featurehead"><span class="enumeration resolved">*</span>new Callback()</div>
+      <div class="featurebody">A Callback class is provided to make it easy to communicate with classical assynchron javascript interfaces. var c = new Callback(); will create a instance of the Callback. the newly created object has two members. callback and promise. pass the callback member to the asynchron interface you want to use. for example reading a file in node.js. fs.readFile("filename.txt", c.callback); to access the result of the callback dereference the promise. (*c.promise)[0]. the result is an array containing all the parameters passed to the callback function. you need the brackets arround because of the operator order, that has been adopted from javaScript.</div>
+
+      <div class="featurehead"><span class="enumeration pending">*</span>catch them all</div>
+      <div class="featurebody">error handling will be transparent over assynchron code. a rejected promise is treated as a exception that can be catched the same way as regular javaScript exceptions</div>
+      
+      <div class="featurehead"><span class="enumeration pending">*</span>direct asm.js programming</div>
+      <div class="featurebody">transparent to the typesafety feature there will be a way to directly programm asm.js compatible code. one of the goals of promiseLand is to make it possible to create as fast as possible implementations. ams.js will be a important util to reach this goal.</div>
+      
+    </div>
+    
+  </body>
+</html>

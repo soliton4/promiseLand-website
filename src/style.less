@@ -1,0 +1,74 @@
+body {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  background-color: #207091
+}
+
+//@import("./vast-shadow/vastshadow-regular.css")
+@import (css) "vast-shadow/vastshadow-regular.css";
+
+/*@font-face {
+  font-family: 'vastshadow';
+  src: url('vast-shadow/VastShadow-Regular.ttf');
+}*/
+
+
+
+.head {
+  color: white;
+  height: 200px;
+  //background-color: #207091
+  background-color: #a5d6f6;
+  //font-family: serif;
+  .mainTitle{
+    font-size: 80px;
+    font-weight: lighter;
+    font-family: 'VastShadowRegular';
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    //width: 10px;
+    text-align: center;
+  }
+  .secundaryTitle {
+    text-align: center;
+    font-size: 30px;
+    .highlighted {
+      text-decoration: underline;
+    }
+  }
+}
+
+.features {
+  margin-top: 20px;
+  width: 800px;
+  background-color: white;
+  color: 404040;
+  border-radius: 20px;
+  padding: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  
+  .featurehead {
+    margin-top: 10px;
+    padding-top: 10px;
+    border: 0px;
+    border-top: 1px;
+    border-style: solid;
+    font-weight: bold;
+    .enumeration{
+      font-size: 20px;
+      margin-right: 10px;
+    }
+    .resolved {
+      color: green;
+    }
+    .progress {
+      color: orange;
+    }
+    .pending {
+      color: red;
+    }
+  }
+}
