@@ -2,8 +2,11 @@ body {
   border: 0;
   margin: 0;
   padding: 0;
-  background-color: #207091
+  background-color: #207091;
+  font-family: "Open Sans";
+  font-weight: lighter;
 }
+
 
 //@import("./vast-shadow/vastshadow-regular.css")
 @import (css) "vast-shadow/vastshadow-regular.css";
@@ -17,7 +20,8 @@ body {
 
 .head {
   color: white;
-  height: 200px;
+  text-shadow:2px 2px 4px #207091;
+  min-height: 200px;
   //background-color: #207091
   background-color: #a5d6f6;
   //font-family: serif;
@@ -35,8 +39,14 @@ body {
     text-align: center;
     font-size: 30px;
     .highlighted {
-      text-decoration: underline;
+      //text-decoration: underline;
+      border-bottom: 1px solid White;
+      box-shadow: 0px 1px 0px #207091;
     }
+  }
+  .version{
+    text-align: right;
+    margin-right: 30px;
   }
 }
 
@@ -49,6 +59,10 @@ body {
   padding: 30px;
   margin-left: auto;
   margin-right: auto;
+  
+  .featuretext{
+    font-weight: bold;
+  }
   
   .featurehead {
     margin-top: 10px;
