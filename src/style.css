@@ -13,7 +13,7 @@ body {
 }*/
 .head {
   color: white;
-  text-shadow: 2px 2px 4px #207091;
+  text-shadow: 2px 2px 10px  #207091;
   min-height: 200px;
   background-color: #a5d6f6;
 }
@@ -29,10 +29,11 @@ body {
 .head .secundaryTitle {
   text-align: center;
   font-size: 30px;
+  font-weight: normal;
 }
 .head .secundaryTitle .highlighted {
-  border-bottom: 1px solid White;
-  box-shadow: 0px 1px 0px #207091;
+  box-shadow: 0px 0px 10px 1px rgba(235, 117, 0, 0.5);
+  background-color: rgba(235, 117, 0, 0.3);
 }
 .head .version {
   text-align: right;
