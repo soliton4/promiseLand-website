@@ -59,16 +59,16 @@ body {
   border-style: solid;
   font-weight: bold;
 }
-.features .featurehead .enumeration {
+.features .enumeration {
   font-size: 20px;
   margin-right: 10px;
 }
-.features .featurehead .resolved {
+.features .enumeration.resolved {
   color: green;
 }
-.features .featurehead .progress {
+.features .enumeration.progress {
   color: orange;
 }
-.features .featurehead .pending {
+.features .enumeration.pending {
   color: red;
 }

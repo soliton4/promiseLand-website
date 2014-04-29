@@ -18,17 +18,21 @@
       <div class="featurebody">
         The most important feature of promiseLand is, that you dont need to learn a new programming Language. It is basically javaScript and for the most existing javaScript there will be no noticable difference in the way it executes.<br> If you dont use any of the promiseLand features basic javaScript is being generated. you may encounter less error messages since promiseLand is more forgiving when it comes to variable declaration. And there are other tiny differences, but promiseLand is designed to be backwards compatible to javaScript. Keep in mind that c++ is not 100% compatible to c, but you can still use c style programming without thinking about the differences. The same applies to promiseLand.</div>
       
-      <div class="featurehead"><span class="enumeration progress">*</span>*promise</div>
-      <div class="featurebody">Dereference javascript promises with the * operator. just like you are used to in c or c++ you can use the dereferencing operator to access the resolved value of a Promise. the promiseLand Compiler will generate the appropriate code that runs assynchron, but you can programm it in a way that looks like it should - as a representation of your Application Logic.<br>
-      if a promise dereferencing is detected within a function, the function will itself return a promise. You can force the creation of a promising function by adding a "*" between the parameter part and the body of a function. example function promisingFunction()*{ return "something"; }</div>
+      <div class="featurehead"><span class="enumeration resolved">*</span>*promise</div>
+      <div class="featurebody">Dereference javascript promises with the * operator. Just like you are used to do with pointers in c or c++, you can use the dereferencing operator to access the resolved value of a Promise. The promiseLand Compiler will generate the appropriate code that runs assynchron, but you can programm it in a way that looks like it should - as a representation of your Application Logic.<br>
+      If a function contains promise dereferencing, the function will itself return a promise. You can force the creation of a promising function by adding a "*" between the parameter part and the body of a function. example: function promisingFunction()*{ return "something"; }</div>
       
       <div class="featurehead"><span class="enumeration resolved">*</span>[function]</div>
       <div class="featurebody">The function keyword is optional. One of the goals of promiseLand is to prevent unneccessary type work. since the function keyword is clearly not neccessary to identyfy a function, you can simply leave it away. a small but powerful feature.</div>
 
       <div class="featurehead"><span class="enumeration resolved">*</span>require "modulename"</div>
-      <div class="featurebody">A require keyword has been added to the language. It works like a operator and executes assynchron. promiseLand modules can be used from every commonjs or amd compatible loader. It will utilize what ever require function is present to provide a simple and unified interface. require "stringexpression"</div>
+      <div class="featurebody">A require keyword has been added to the language. It works like a operator and executes assynchron. promiseLand modules can be used from every commonjs or amd compatible loader. It will utilize what ever require function is present to provide a simple and unified interface. require "stringexpression"<br>
+      require counts as a asynchron statement and will make the containting function a promising function.</div>
 
-      <div class="featurehead"><span class="enumeration progress">*</span>"string<br>continuation"</div>
+      <div class="featurehead"><span class="enumeration progress">*</span>catch them all</div>
+      <div class="featurebody">error handling will be transparent over assynchron code. a rejected promise is treated as a exception that can be catched the same way as regular javaScript exceptions</div>
+      
+      <div class="featurehead"><span class="enumeration resolved">*</span>"string<br>continuation"</div>
       <div class="featurebody">Have you ever wondered why you can not multiline string literals in javaScript? Well you are not the only one.</div>
       
       <div class="featurehead"><span class="enumeration progress">*</span>clientCode(); serverCode(); clientCode(); whereEverCode();</div>
@@ -42,11 +46,13 @@
       <div class="featurehead"><span class="enumeration resolved">*</span>new Callback()</div>
       <div class="featurebody">A Callback class is provided to make it easy to communicate with classical assynchron javascript interfaces. var c = new Callback(); will create a instance of the Callback. the newly created object has two members. callback and promise. pass the callback member to the asynchron interface you want to use. for example reading a file in node.js. fs.readFile("filename.txt", c.callback); to access the result of the callback dereference the promise. (*c.promise)[0]. the result is an array containing all the parameters passed to the callback function. you need the brackets arround because of the operator order, that has been adopted from javaScript.</div>
 
-      <div class="featurehead"><span class="enumeration pending">*</span>catch them all</div>
-      <div class="featurebody">error handling will be transparent over assynchron code. a rejected promise is treated as a exception that can be catched the same way as regular javaScript exceptions</div>
-      
       <div class="featurehead"><span class="enumeration pending">*</span>direct asm.js programming</div>
       <div class="featurebody">transparent to the typesafety feature there will be a way to directly programm asm.js compatible code. one of the goals of promiseLand is to make it possible to create as fast as possible implementations. ams.js will be a important util to reach this goal.</div>
+      
+      <div class="featurehead">Caption</div>
+      <div class="featurebody"><span class="enumeration resolved">*</span>Feature is fully implemented.</div>
+      <div class="featurebody"><span class="enumeration progress">*</span>Feature is basically useable but api may be subject to change, or some parts are not implemented yet.</div>
+      <div class="featurebody"><span class="enumeration pending">*</span>No useable implementation exists. The Feature may be still on the drawing board or some alpha implementation may exist.</div>
       
     </div>
     <a href="https://github.com/soliton4/promiseland"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/652c5b9acfaddf3a9c326fa6bde407b87f7be0f4/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6f72616e67655f6666373630302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png"></a>
