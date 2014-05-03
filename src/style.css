@@ -32,8 +32,7 @@ body {
   font-weight: normal;
 }
 .head .secundaryTitle .highlighted {
-  box-shadow: 0px 0px 10px 1px rgba(235, 117, 0, 0.5);
-  background-color: rgba(235, 117, 0, 0.3);
+  text-shadow: 2px 2px 10px #eb7500;
 }
 .head .version {
   font-weight: normal;
