@@ -1,0 +1,4 @@
+//>>built
+define("sol/wgt/Try","dojo/_base/declare dijit/_WidgetBase dojo/dom-style dojo/dom-construct dojo/dom-geometry dojo/dom-class".split(" "),function(b,e,f,c,g,d){return b([e],{buildRendering:function(){this.inherited(arguments);f.set(this.domNode,{opacity:0,position:"absolute",height:"0px",width:"0px",overflow:"hidden",top:"-100",left:"-100"});this.containerNode=c.create("div",{style:{opacity:0,position:"absolute",height:"0px",width:"0px",overflow:"hidden",top:"-100",left:"-100"}});c.place(this.containerNode,
+this.domNode);this.tryNode=this.containerNode},getMarginBox:function(a){a["class"]&&d.add(this.tryNode,a["class"]);c.place(a.node,this.containerNode);var b=g.getMarginBox(a.node);this.containerNode.removeChild(a.node);a["class"]&&d.remove(this.tryNode,a["class"]);return b}})});
+//# sourceMappingURL=Try.js.map

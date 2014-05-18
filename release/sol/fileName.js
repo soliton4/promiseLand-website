@@ -1,0 +1,3 @@
+//>>built
+define("sol/fileName",["dojo/_base/declare","dojo/_base/array","dojo/_base/lang"],function(d,e,f,g){return new (d("File",[],{single:function(a){a=a.split("/");return a[a.length-1]},dir:function(a){a=a.split("/");for(var b="",c=0,c=0;c<a.length-1;++c)b+=a[c],b+="/";return b},normalize:function(a){var b=a.split("/");a=0;var c=[];for(a=0;a<b.length;++a)"."!=b[a]&&(".."==b[a]?c.pop():c.push(b[a]));b="";for(a=0;a<c.length;++a)a&&(b+="/"),b+=c[a];return b}}))});
+//# sourceMappingURL=fileName.js.map

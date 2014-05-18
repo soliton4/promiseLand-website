@@ -1,0 +1,8 @@
+{
+"version":3,
+"file":"continuelist.js",
+"lineCount":3,
+"mappings":"A;AAAC,SAAA,CAASA,CAAT,kBACYC,QADZ,kBAC0CC,OAD1C,CAEGF,CAAA,CAAIG,OAAA,wBAAJ,CAFH,mBAGiBC,OAHjB,EAGyCA,MAAAC,IAHzC,CAIGD,MAAA,gEAAwEJ,CAAxE,CAJH,CAMGA,CAAA,CAAIM,UAAJ,CANH,EAAA,CAOE,QAAA,CAASA,CAAT,MAGGC,8BAGJD,EAAAE,SAAAC,qCANC,CAM0DC,QAAAA,CAASC,CAATD,KACrDC,CAAAC,UAAA,gBADqDF,OAChBJ,EAAAO,KADgBH,SAErDI,EAASH,CAAAI,eAAA,EAF4CL,CAEvBM,IAFuBN,CAGhDO,GAHgDP,CAGzCO,CAHyCP,CAGrCI,CAAAI,OAHqCR,CAGtBO,CAHsBP,QAInDS,EAAML,CAAA,CAAOG,CAAP,CAAAG,KAJ6CV,CAI7BW,CAJ6BX,CAKnDY,OAASX,CAAAY,cAAA,CAAiBJ,CAAAK,KAAjB,CAAAC,KAL0Cf,KAOlDI,CAAA,CAAOG,CAAP,CAAAS,MAAA,EAPkDhB;CAO5BY,CAP4BZ,IAOhBW,CAPgBX,CAORC,CAAAgB,QAAA,CAAWR,CAAAK,KAAX,CAAAH,MAAA,CAA2Bd,CAA3B,CAPQG,GAQrDC,CAAAiB,YAAA,oBARqDlB,YAWnDmB,EAASR,CAAA,GAX0CX,CAWhCoB,EAAQT,CAAA,GAXwBX,CAYnDqB,KAdeC,KAcNC,QAAA,CAAyBZ,CAAA,GAAzB,CAATU,CACAV,CAAA,GADAU,CAECG,QAAA,CAASb,CAAA,GAAT,IAFDU,MAIJf,EAAA,CAAaC,CAAb,CAhBuDP,MAgB9BmB,CAhB8BnB,CAgBrBqB,CAhBqBrB,CAgBZoB,CAhBYpB,CAmBzDC,CAAAwB,kBAAA,CAAqBnB,CAArB,CAnByDN,CAN1D,CAPF;",
+"sources":["continuelist.js.uncompressed.js"],
+"names":["mod","exports","module","require","define","amd","CodeMirror","listRE","commands","newlineAndIndentContinueMarkdownList","CodeMirror.commands.newlineAndIndentContinueMarkdownList","cm","getOption","Pass","ranges","listSelections","replacements","i","length","pos","head","match","inList","getStateAfter","line","list","empty","getLine","execCommand","indent","after","bullet","unorderedBullets","indexOf","parseInt","replaceSelections"]
+}

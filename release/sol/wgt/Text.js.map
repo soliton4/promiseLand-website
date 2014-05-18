@@ -1,0 +1,8 @@
+{
+"version":3,
+"file":"Text.js",
+"lineCount":3,
+"mappings":"A;AAAAA,MAAA,kGAKG,QAAA,CACDC,CADC,CAECC,CAFD,CAGCC,CAHD,CAICC,CAJD,QAMMH,EAAA,EAASC,CAAT,kDAGaG,QAAAA,OACZC,EAAaF,CAAAG,MAAA,IAAeC,kBAAf,CACb,MAAK,OAAL,CAFYH,GAGdC,CAAA,CAAW,OAAX,CAHcD,CAGQ,KAAK,OAAL,CAHRA,CAKZI,WALYJ,GAMdC,CAAAG,MANcJ,CAMKI,UANLJ,CAWhBK,aAXgBL,CAWDF,CAAAQ,OAAA,CAAoBC,YAApB,CAAkCJ,kBAAlC,CACfK,cAZgBR,CAYAS,QAAAC,eAAA,CAAwBC,SAAxB,CAChBb,EAAAc,MAAA,CAAmBJ,aAAnB,CAAkCH,YAAlC,CAbgBL,CAHb,cAmBWa,QAAAA,CAASC,CAATD,EACVL,aADUK,GAEZf,CAAAiB,QAAA,CAAqBP,aAArB,CAFYK;AAGZL,aAHYK,CAGIJ,QAAAC,eAAA,CAAwBC,SAAxB,CAHJE,CAIZf,CAAAc,MAAA,CAAmBJ,aAAnB,CAAkCH,YAAlC,CAJYQ,EAnBX,EANN,CALH;",
+"sources":["Text.js.uncompressed.js"],
+"names":["define","declare","_WidgetBase","domConstruct","lang","buildRendering","attributes","mixin","tagAttributes","style","domNode","create","tagName","textNode","document","createTextNode","text","place","_setTextAttr","parText","destroy"]
+}

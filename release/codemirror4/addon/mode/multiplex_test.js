@@ -1,0 +1,3 @@
+//>>built
+define("codemirror4/addon/mode/multiplex_test",["dojo","dijit","dojox"],function(c,d,e){(function(){CodeMirror.defineMode("markdown_with_stex",function(){var a=CodeMirror.getMode({},"stex"),b=CodeMirror.getMode({},"markdown");return CodeMirror.multiplexingMode(b,{open:"$",close:"$",mode:a,delimStyle:"delim",innerStyle:"inner"})});var b=CodeMirror.getMode({},"markdown_with_stex");(function(a){test.mode(a,b,Array.prototype.slice.call(arguments,1),"multiplexing")})("stexInsideMarkdown","[strong **Equation:**] [delim $][inner\x26tag \\pi][delim $]")})()});
+//# sourceMappingURL=multiplex_test.js.map

@@ -1,0 +1,3 @@
+//>>built
+(function(a){"object"==typeof exports&&"object"==typeof module?a(require("../../lib/codemirror")):"function"==typeof define&&define.amd?define("codemirror4/addon/lint/json-lint",["../../lib/codemirror"],a):a(CodeMirror)})(function(a){a.registerHelper("lint","json",function(c){var d=[];jsonlint.parseError=function(c,e){var b=e.loc;d.push({from:a.Pos(b.first_line-1,b.first_column),to:a.Pos(b.last_line-1,b.last_column),message:c})};try{jsonlint.parse(c)}catch(f){}return d})});
+//# sourceMappingURL=json-lint.js.map

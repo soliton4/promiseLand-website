@@ -1,0 +1,228 @@
+<!doctype html>
+<html>
+  <head>
+    <title>promiseLand</title>
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,300,400italic,400,600italic,600,700italic,700,800italic,800" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="style/style.css">
+    <script>
+      dojoConfig = {
+        baseUrl: "/",
+        async: 1,
+        locale: 'en-us',
+        packages: [{
+          name: "dojo",
+          location: "dojo"
+        },{
+          name: "app",
+          location: "app"
+        },{
+          name: "dijit",
+          location: "dijit"
+        },{
+          name: "dojox",
+          location: "dojox"
+        },{
+          name: "codemirror",
+          location: "codemirror"
+        },{
+          name: "promiseland",
+          location: "promiseland"
+        }],
+        deps: [ "app/app" ] // And array of modules to load on "boot"
+      };
+    </script>
+    <script src="/dojo/dojo.js"></script>
+    
+  </head>
+  <body class="body claro">
+    <div class="head">
+      <div class="mainTitle">pr*miseLand</div>
+      <div class="secundaryTitle">promiseLand is a very promising Language</div>
+      <div class="secundaryTitle">aka the <span class="highlighted">Promise</span> <span class="highlighted">L</span>anguage <span class="highlighted">and</span> more</div>
+      <div class="version">0.0.2 alpha</div>
+    </div>
+    
+    
+    <div class="features">
+      <div class="featuretext">promiseLand aims to extend javaScript as c++ extends c, or less does to css.<br>Have a look at the feature overview below and see if it lives up to this high goal:
+      </div>
+      
+      <div class="featurehead"><span class="enumeration resolved">*</span>promiseLand &#x2283; javaScript strict mode (for the most part)</div>
+      <div class="featurebody readMore">
+        Dont learn a new Programming Language. PromiseLand includes javaScript strict mode.
+        <div class="more">PromiseLand is basically javaScript. For the most existing javaScript there will be no noticable difference in the way it executes.<br> If you dont use any of the promiseLand features, the promiseLand Compiler will generate basic javaScript. The most important difference is that promiseLand requires a Module Loader. A commonJs and AMD compatible header and footer is added to your code. The Module is expected as a return statement.
+          <textarea class="promiseLandCode">
+var a;
+var b = 1;
+var c = "value";
+var d = undefinedVariable;    // will not cause error
+
+return {                      // the module is defined by return
+  a: a,
+  b: b,
+  c: c,
+  d: d
+};
+
+thisCodeIsNotBeingExecuted(); // since it is behind a return statement.
+                              // imagine your hole code inside a javaScript strict mode function
+          </textarea>
+        </div>
+      </div>
+      
+      <div class="featurehead"><span class="enumeration resolved">*</span>*promise</div>
+      <div class="featurebody readMore">Dereference promises with the * operator.
+        <div class="more">If you know c or c++ you will be familliar with the dereferencing operator.<br>"*" used as a unary operator in front of an expression, is called dereferencing. Instead of the promise Object, it returns the result of a promise. If the promise is not fullfilled yet the code will wait on that position until the promise is fullfilled. If the promise is rejected, the reject reason will be thrown as an exception.<br>
+      Imagine writing your asynchron code in a seemingliy synchronous manner.
+          <textarea class="promiseLandCode">
+var p = new Promise();
+setTimeout(function(){
+  p.resolve("resolved Value");
+}, 1000);
+
+var result = *p; // this will wait until the timeout has happened
+
+var p2 = new Promise();
+setTimeout(function(){
+  p.reject("reject reason");
+}, 1000);
+
+try {
+  var result2 = *p2;
+}catch(e){
+  console.log(*p + " / " + e); // you can dereference promises anywhere
+                               // this will output "resolved value / reject reason"
+};
+          </textarea>
+          <br>
+          Functions that make use of the dereferencing promise mechanism will allways return a promise themselves. You can force the return of a promise by adding the promise operator to the function definition.
+          <textarea class="promiseLandCode">
+var f1 = function(){
+  if (false){
+    *someNonExistenPromise; // dereferencing code that is actually not being called.
+  };
+  return "result 1";
+};
+
+var f2 = function()*{       // explicitly mark the function as promising
+  return "result 2";
+};
+
+var finalResult = *f1() + " / " + *f2(); // both functions will return a promise.
+                                         // the final result is "result 1 / result 2"
+          </textarea>
+        </div>
+      </div>
+      
+      <div class="featurehead"><span class="enumeration resolved">*</span>[function]</div>
+      <div class="featurebody readMore">The function keyword is optional. <div class="more">One of the goals of promiseLand is to prevent unneccessary type work. Since the function keyword is clearly not neccessary to identyfy a function, you can simply leave it away. a small but powerful feature.
+        
+          <textarea class="promiseLandCode">
+var f1 = (){
+  if (false){
+    *someNonExistenPromise; // dereferencing code that is actually not being called.
+  };
+  return "result 1";
+};
+
+var f2 = ()*{               // explicitly mark the function as promising
+  return "result 2";
+};
+
+var finalResult = *f1() + " / " + *f2(); // both functions will return a promise.
+                                         // the final result is "result 1 / result 2"
+          </textarea>
+        
+        </div>
+      </div>
+
+      <div class="featurehead"><span class="enumeration resolved">*</span>require "modulename"</div>
+      <div class="featurebody readMore">The keyword require can be used to load modules.
+        <div class="more">PromiseLand assumes that a module loader is in use. There is limited functionality available in order to make a promiseLand module work without a loder, but the regular usecase is that you use eather commonJs (node.js) or AMD (require.js).<br>
+          A module loader is being added that is compatible with both. You can load modules simply like this:
+          <textarea class="promiseLandCode">
+var module = require "path/to/module";
+var relativeModule = require "./relative/module";
+          </textarea>
+          
+          require has to work if its used in AMD or commonJs environment. Therefore require is treated as a asynchron statement, similar to promise dereferencing. Functions that make use of require will return a promise
+        
+          <textarea class="promiseLandCode">
+var f = (){
+  var m = require "some/module"  // makes the funciton promising
+  return "result";
+};
+
+console.log(*f());  // will output "result"
+          </textarea>
+        </div></div>
+
+      <div class="featurehead"><span class="enumeration resolved">*</span>catch them all</div>
+      <div class="featurebody readMore">error handling is completely transparent over assynchron code. <div class="more">A rejected promise is treated as an exception. It can be catched the same way as regular javaScript exceptions.
+        
+          <textarea class="promiseLandCode">
+var p = new Promise();
+setTimeout(function(){
+  p.reject("reject reason");
+}, 1000);
+
+try {
+  var result = *p;
+}catch(e){
+  console.log(e);     // rejected promise causes a catchable exception when dereferenced
+};
+          </textarea>
+        <br>
+        Uncatched errors in promising Functions cause the resulting promise to be rejected.
+        
+          <textarea class="promiseLandCode">
+var f = ()*{  // promising function
+  throw { msg: "some error" }; // uncatched error will cause the resulting promise to be rejected.
+};
+
+try {
+  var result = *f();
+}catch(e){
+  console.log(e);     // rejected promise causes a catchable exception when dereferenced
+};
+          </textarea>
+        
+        </div></div>
+      
+      <div class="featurehead"><span class="enumeration resolved">*</span>"string<br>continuation"</div>
+      <div class="featurebody readMore">Have you ever wondered why you can not use multiline string literals in javaScript? Well you are not alone.<div class="more">
+        Strings can continue over line breaks:
+          <textarea class="promiseLandCode">
+var validString = "Some text
+that goes on
+over several lines";
+          </textarea>
+        
+        </div></div>
+      
+      <div class="featurehead"><span class="enumeration progress">*</span>clientCode(); serverCode(); clientCode(); whereEverCode();</div>
+      <div class="featurebody">By providing some extra hints to a function definition you can force the function to allways be executed server sided or client sided. But this feature is actually more generic and powerful than that.<br>
+      promiseLand introduces the concept of execution profiles which in essence represent the runtime environment of the code. A profile can be node.js or browser code, or another instance of node.js / your javaScript implementation of choice, or a node.js cluster, or a worker thread. The profile name is a string literal which decides where the code is being executed. Since promiseLand has the assynchron execution concept build in, its no problem to compile code, that waits till a function in another runtime profile is executed.<br>
+      How does it work? You are in control! promiseLand provides a very low level interface to this feature. There is a api that will send strings and accepts strings from other profiles. Base Classes are provided to help you implement the event emitter neccessary to programm the api. Everything else is up to you. If you want to use socket.io to transport the messages or hire an army of postman to deliver them is totally up to you.<br>And this is inteded. Since the interface is as lowlevel as possible, promiseLand profiles can be as flexible as possible.</div>
+      
+      <div class="featurehead"><span class="enumeration progress">*</span>dynamic type safety</div>
+      <div class="featurebody">A Type safety check is available at comipile time. it generates runtime Errors vor type violations. Types can be imported via require and can be used in template functions, similar to C++ templates. They are assembled typesafe during runtime via eval.</div>
+
+      <div class="featurehead"><span class="enumeration resolved">*</span>new Callback()</div>
+      <div class="featurebody">A Callback class is provided to make it easy to communicate with classical assynchron javascript interfaces. var c = new Callback(); will create a instance of the Callback. the newly created object has two members. callback and promise. pass the callback member to the asynchron interface you want to use. for example reading a file in node.js. fs.readFile("filename.txt", c.callback); to access the result of the callback dereference the promise. (*c.promise)[0]. the result is an array containing all the parameters passed to the callback function. you need the brackets arround because of the operator order, that has been adopted from javaScript.</div>
+
+      <div class="featurehead"><span class="enumeration pending">*</span>direct asm.js programming</div>
+      <div class="featurebody">transparent to the typesafety feature there will be a way to directly programm asm.js compatible code. one of the goals of promiseLand is to make it possible to create as fast as possible implementations. ams.js will be a important util to reach this goal.</div>
+      
+      <div class="featurehead"><span class="enumeration pending">*</span>save / query</div>
+      <div class="featurebody">The idea is to provide a api for saving and loading data on the class level. Something like save variable; and load by passing the key to the constructor. In addition a query interface is neccessary.</div>
+      
+      <div class="featurehead">Caption</div>
+      <div class="featurebody"><span class="enumeration resolved">*</span>Feature is fully implemented.</div>
+      <div class="featurebody"><span class="enumeration progress">*</span>Feature is basically useable but api may be subject to change, or some parts are not implemented yet.</div>
+      <div class="featurebody"><span class="enumeration pending">*</span>No useable implementation exists. The Feature may be still on the drawing board or some alpha implementation may exist.</div>
+      
+    </div>
+    <a href="https://github.com/soliton4/promiseland"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/652c5b9acfaddf3a9c326fa6bde407b87f7be0f4/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6f72616e67655f6666373630302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png"></a>
+  </body>
+</html>

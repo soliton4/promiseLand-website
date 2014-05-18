@@ -1,0 +1,141 @@
+
+body {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  background-color: #207091;
+  font-family: "Open Sans";
+  font-weight: lighter;
+}
+
+
+@import url('../dijit/themes/claro/claro.css');
+@import url('../codemirror4/lib/codemirror.css');
+
+
+.CodeMirror {
+  border: 1px solid #eee;
+  height: auto;
+  margin: 7px;
+}
+.CodeMirror-scroll {
+  overflow-y: hidden;
+  overflow-x: auto;
+}
+
+
+* { 
+  outline: none; 
+}
+
+
+//@import("./vast-shadow/vastshadow-regular.css")
+@import (css) "../vast-shadow/vastshadow-regular.css";
+
+/*@font-face {
+  font-family: 'vastshadow';
+  src: url('vast-shadow/VastShadow-Regular.ttf');
+}*/
+
+.hidden {
+  display: none;
+}
+
+
+
+.head {
+  color: white;
+  text-shadow:2px 2px 10px  #207091;
+  min-height: 200px;
+  background-color: #a5d6f6;
+  //font-family: serif;
+  .mainTitle{
+    font-size: 80px;
+    font-weight: lighter;
+    font-family: 'VastShadowRegular';
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    //width: 10px;
+    text-align: center;
+  }
+  .secundaryTitle {
+    text-align: center;
+    font-size: 30px;
+    font-weight: normal;
+    .highlighted {
+      //text-decoration: underline;
+      //border-bottom: 1px solid White;
+      //box-shadow: 0px 0px 10px 1px  RGBA(235, 117, 0, 0.5);
+      //background-image: url(image/rainbowbackground.png)
+      //background-color: RGBA(235, 117, 0, 0.3)
+      text-shadow:2px 2px 10px  RGBA(235, 117, 0, 1);
+      
+    }
+  }
+  .version{
+    font-weight: normal;
+    text-align: right;
+    margin-right: 30px;
+  }
+}
+
+
+
+
+
+.features {
+  margin-top: 20px;
+  width: 800px;
+  background-color: white;
+  //color: 404040;
+  color: 000000;
+  border-radius: 20px;
+  padding: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 50px;
+  
+  .featuretext{
+    color: 404040;
+    font-weight: bold;
+  }
+  
+  .featurehead {
+    color: 404040;
+    margin-top: 10px;
+    padding-top: 10px;
+    border: 0px;
+    border-top: 1px;
+    border-style: solid;
+    border-color: #a5d6f6;
+    font-weight: bold;
+  }
+    .enumeration{
+      font-size: 20px;
+      margin-right: 10px;
+    &.resolved {
+      color: green;
+    }
+    &.progress {
+      color: orange;
+    }
+    &.pending {
+      color: red;
+    }
+    }
+}
+
+
+
+.moreBtn.dijitButton {
+  margin: inherit;
+  padding: inherit;
+  .dijitButtonNode {
+    border: 0px;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+

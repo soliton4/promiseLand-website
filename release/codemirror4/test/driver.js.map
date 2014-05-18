@@ -1,0 +1,8 @@
+{
+"version":3,
+"file":"driver.js",
+"lineCount":2,
+"mappings":"A;AACAA,MAAA,oDAA4D,QAAA,CAASC,CAAT,CAAcC,CAAd,CAAoBC,CAApB,GAA5D;",
+"sources":["driver.js.uncompressed.js"],
+"names":["define","dojo","dijit","dojox"]
+}

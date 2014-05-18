@@ -1,0 +1,4 @@
+//>>built
+define("sol/promise",["dojo/_base/declare","dojo/Deferred","dojo/_base/array","dojo/promise/all","dojo/_base/lang"],function(f,e,g,h,k){return new (f("SolPromise",[],{_isPromise:function(a){return a&&"function"===typeof a.then},_parseParameter:function(a){var b,c;a instanceof Array?c=a:a&&"object"===typeof a&&(b=a);if(b){c=[];for(var d in b)Object.hasOwnProperty.call(b,d)&&this._isPromise(b[d])&&c.push(b[d])}if(c)return c},allDone:function(a){ar=this._parseParameter(a);if(!ar||!ar.length)return(new e).resolve(a);
+var b=new e,c=ar.length,d=function(){0===--c&&b.resolve(a)};g.forEach(ar,function(a,b){a.then(d,d)});return b.promise}}))});
+//# sourceMappingURL=promise.js.map

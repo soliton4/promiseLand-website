@@ -1,0 +1,15 @@
+// wrapped by build app
+define("codemirror4/mode/ruby/test", ["dojo","dijit","dojox"], function(dojo,dijit,dojox){
+(function() {
+  var mode = CodeMirror.getMode({indentUnit: 2}, "ruby");
+  function MT(name) { test.mode(name, mode, Array.prototype.slice.call(arguments, 1)); }
+
+  MT("divide_equal_operator",
+     "[variable bar] [operator /=] [variable foo]");
+
+  MT("divide_equal_operator_no_spacing",
+     "[variable foo][operator /=][number 42]");
+
+})();
+
+});

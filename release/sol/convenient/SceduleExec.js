@@ -1,0 +1,3 @@
+//>>built
+define("sol/convenient/SceduleExec",["dojo/_base/declare"],function(c){return c([],{constructor:function(a,b){this.fun=a;this.delay=b&&b.delay||0},exec:function(){if(!this.sceduled){var a=this;a.sceduled=!0;setTimeout(function(){a.sceduled=!1;a.fun()},this.delay)}},execNow:function(){this.cancel();this.fun()},cancel:function(){self.sceduled&&(self.sceduled=!1,clearTimeout(this.timeout),delete this.timeout)},destroy:function(){this.inherited(arguments);this.cancel()}})});
+//# sourceMappingURL=SceduleExec.js.map

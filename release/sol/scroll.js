@@ -1,0 +1,3 @@
+//>>built
+define("sol/scroll",["sol/wgt/Try","dojo/dom-construct"],function(f,a){var c;return{dimensions:function(){if(!c){var e=f({});e.placeAt(document.body);var b=a.create("div",{style:{overflow:"visible",position:"absolute"}});a.place(b,e.containerNode);var d=a.create("div",{style:{overflow:"scroll"}});a.place(d,b);b=a.create("div",{innerHTML:"test",style:{overflow:"hidden"}});a.place(b,d);c={w:d.offsetWidth-b.offsetWidth,h:d.offsetHeight-b.offsetHeight};e.destroy()}return{w:c.w,h:c.h}}}});
+//# sourceMappingURL=scroll.js.map

@@ -1,0 +1,4 @@
+//>>built
+define("codemirror4/addon/tern/worker",["dojo","dijit","dojox"],function(k,l,m){function g(b,a){postMessage({type:"getFile",name:b,id:++e});d[e]=a}function h(b,a,f){f&&importScripts.apply(null,f);c=new tern.Server({getFile:g,async:!0,defs:b,plugins:a})}var c;this.onmessage=function(b){var a=b.data;switch(a.type){case "init":return h(a.defs,a.plugins,a.scripts);case "add":return c.addFile(a.name,a.text);case "del":return c.delFile(a.name);case "req":return c.request(a.body,function(b,c){postMessage({id:a.id,
+body:c,err:b&&String(b)})});case "getFile":return b=d[a.id],delete d[a.id],b(a.err,a.text);default:throw Error("Unknown message type: "+a.type);}};var e=0,d={}});
+//# sourceMappingURL=worker.js.map

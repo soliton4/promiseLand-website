@@ -1,0 +1,8 @@
+{
+"version":3,
+"file":"json-lint.js",
+"lineCount":2,
+"mappings":"A;AAIC,SAAA,CAASA,CAAT,kBACYC,QADZ,kBAC0CC,OAD1C,CAEGF,CAAA,CAAIG,OAAA,wBAAJ,CAFH,mBAGiBC,OAHjB,EAGyCA,MAAAC,IAHzC,CAIGD,MAAA,6DAAqEJ,CAArE,CAJH,CAMGA,CAAA,CAAIM,UAAJ,CANH,EAAA,CAOE,QAAA,CAASA,CAAT,EAGHA,CAAAC,eAAA,eAA0C,QAAA,CAASC,CAAT,MACpCC,IACJC,SAAAC,WAFwC,CAElBC,QAAAA,CAASC,CAATD,CAAcE,CAAdF,MAChBG,EAAMD,CAAAC,IACVN,EAAAO,KAAA,OAAkBV,CAAAW,IAAA,CAAeF,CAAAG,WAAf,GAAmCH,CAAAI,aAAnC,CAAlB,IACgBb,CAAAW,IAAA,CAAeF,CAAAK,UAAf,GAAkCL,CAAAM,YAAlC,CADhB,SAEqBR,CAFrB,EAFoBD,CAFkB,KAQlCF,QAAAY,MAAA,CAAed,CAAf,CARkC,OASlCe,CATkC,SAUjCd,EAViC,CAA1C,CAHG,CAPF;",
+"sources":["json-lint.js.uncompressed.js"],
+"names":["mod","exports","module","require","define","amd","CodeMirror","registerHelper","text","found","jsonlint","parseError","jsonlint.parseError","str","hash","loc","push","Pos","first_line","first_column","last_line","last_column","parse","e"]
+}

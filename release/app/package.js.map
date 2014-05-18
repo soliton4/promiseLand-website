@@ -1,0 +1,8 @@
+{
+"version":3,
+"file":"package.js",
+"lineCount":2,
+"mappings":"A;IAAIA,e,CAEHC,c,CAEAC,W,CAEAC,c,CACAC,mB,CAEGC,4BAEIC,QAAAA,CAASC,CAATD,CAAmBE,CAAnBF,QACEF,SAAAE,KAAA,CAAcC,CAAd,CADFD,CAFJD,aAMWI,QAAAA,CAASF,CAATE,CAAmBD,CAAnBC,QACLL,SAAAE,KAAA,CAAcC,CAAd,CADKE,EACsBD,CADtBC,GAC6BT,aAD7BS,CANXJ,KAUGK,QAAAA,CAASH,CAATG,CAAmBF,CAAnBE,QACGP,OAAAG,KAAA,CAAYC,CAAZ,CADHG,IAC8BF,CAD9BE,GACqCT,YADrCS,EAVHL,UAcQH,QAAAA,CAASK,CAATL,CAAmBM,CAAnBN,QACFM,EADEN,GACKA,SADLA,CAdRG;",
+"sources":["package.js.uncompressed.js"],
+"names":["miniExcludes","amdExcludes","copyOnly","isJsRe","isTestRe","profile","test","filename","mid","miniExclude","amd"]
+}

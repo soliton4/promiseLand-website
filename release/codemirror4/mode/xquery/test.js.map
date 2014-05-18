@@ -1,0 +1,8 @@
+{
+"version":3,
+"file":"test.js",
+"lineCount":9,
+"mappings":"A;AACAA,MAAA,yDAAiE,QAAA,CAASC,CAAT,CAAcC,CAAd,CAAoBC,CAApB,EAMhE,SAAA,GAECC,QAASA,EAATA,CAAYC,CAAZD,EAAoBE,IAAAC,KAAA,CAAUF,CAAV,CAAgBE,CAAhB,CAAsBC,KAAAC,UAAAC,MAAAC,KAAA,CAA2BC,SAA3B,GAAtB,CAApBR,CAFD,IACKG,EAAOM,UAAAC,QAAA,sBAGXV,EAAA;;;;2VAuBAA,EAAA,wGAGAA,EAAA,4JAGAA;CAAA,+RAGAA,EAAA,0OAIAA;CAAA,iWAMAA,EAAA;8JAMAA,EAAA,oJAGAA,EAAA,6PAvDD,EAAA,EANgE,CAAjE;",
+"sources":["test.js.uncompressed.js"],
+"names":["define","dojo","dijit","dojox","MT","name","test","mode","Array","prototype","slice","call","arguments","CodeMirror","getMode"]
+}

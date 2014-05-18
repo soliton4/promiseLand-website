@@ -7,3 +7,6 @@
 [submodule "src/dojox"]
 	path = src/dojox
 	url = https://github.com/dojo/dojox.git
+[submodule "src/sol"]
+	path = src/sol
+	url = https://github.com/soliton4/sol-amd.git
