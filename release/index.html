@@ -4,6 +4,8 @@
     <title>promiseLand</title>
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,300,400italic,400,600italic,600,700italic,700,800italic,800" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="style/style.css">
+    <!-- socket.io -->
+      <script src="/socket.io/socket.io.js"></script>
     <script>
       dojoConfig = {
         baseUrl: "/",
@@ -32,6 +34,48 @@
       };
     </script>
     <script src="/dojo/dojo.js"></script>
+    <script>
+      require(["promiseland"], function(promiseland){
+        promiseland.set("profile", "client");
+        
+        var ServerProfile = function() {
+          this.name = function(){
+            return "server";
+          };
+          this.find = function(){
+            return this.connection;
+          };
+        };
+        ServerProfile.prototype = new promiseland.ProfileBaseClass();
+        
+        var ServerConnection = function(socket) {
+          this.socket = socket;
+          var self = this;
+          socket.on("pl", function(data){
+            self.emit("data", data);
+          });
+          this.send = function(data){
+            socket.emit("pl", data);
+          };
+        };
+        ServerConnection.prototype = new promiseland.ConnectionBaseClass();
+        
+        var serverProfile = new ServerProfile();
+        promiseland.addProfile(serverProfile);
+
+        var socket = io.connect();
+        socket.on("connect", function(){
+          var connection = new ServerConnection(socket);
+          serverProfile.connection = connection;
+          serverProfile.emit("connection", connection);
+        });
+        socket.on("disconnect", function(){
+          serverProfile.connection.emit("disconnect");
+          serverProfile.connection = undefined;
+        });
+        
+      });
+    </script>
     
   </head>
   <body class="body claro">
@@ -201,21 +245,146 @@ over several lines";
         </div></div>
       
       <div class="featurehead"><span class="enumeration progress">*</span>clientCode(); serverCode(); clientCode(); whereEverCode();</div>
-      <div class="featurebody">By providing some extra hints to a function definition you can force the function to allways be executed server sided or client sided. But this feature is actually more generic and powerful than that.<br>
-      promiseLand introduces the concept of execution profiles which in essence represent the runtime environment of the code. A profile can be node.js or browser code, or another instance of node.js / your javaScript implementation of choice, or a node.js cluster, or a worker thread. The profile name is a string literal which decides where the code is being executed. Since promiseLand has the assynchron execution concept build in, its no problem to compile code, that waits till a function in another runtime profile is executed.<br>
-      How does it work? You are in control! promiseLand provides a very low level interface to this feature. There is a api that will send strings and accepts strings from other profiles. Base Classes are provided to help you implement the event emitter neccessary to programm the api. Everything else is up to you. If you want to use socket.io to transport the messages or hire an army of postman to deliver them is totally up to you.<br>And this is inteded. Since the interface is as lowlevel as possible, promiseLand profiles can be as flexible as possible.</div>
+      <div class="featurebody readMore">Different runtime environments can be addressed by "frame"-name.
+        <div class="more">
+          PromiseLand introduces the concept of execution frames. A frame addresses a certain configuration in which the code is executed. For example node.js, browser, browser worker thread or what ever runtime you choose for your code.<br>
+          By adding frame information to a function, it allowes you to programm an execution flow accross all runtime environments.<br><br>
+          exclusive:
+          
+          <textarea class="promiseLandCode">
+var fs; // file system
+var serverInit = () exclusive "server"{
+  fs = require "fs";
+};
+serverInit();
+
+          </textarea>
+          The "exclusive" keyword makes the function run exclusively in one frame. If called from within another frame, it is simply not executed.<br><br>
+          
+          frame:
+          <textarea class="promiseLandCode">
+var fs; // file system
+var serverInit = () exclusive "server"{
+  fs = require "fs";
+};
+serverInit();
+
+var readFile = (fileName) frame "server"{
+  var cb = new Callback(); // read the callback section for details
+  fs.readFile(fileName, cb);
+  var args = *cb.promise;
+  return args[1];
+};
+
+// this code works on server and on client
+var someFun = (){
+  console.log(*readFile("readme.txt")); // frame functions are allways promising
+};
+          </textarea>
+          The frame name tells promiseLand in which frame the function will be executed.<br>
+          In this example you can see a simple file reading function that will run on the client and on the server.<br>
+          If called from the server it is simply executed. If called from the client, promiseLand communicates through the frame api to the other frame. The function will be executed on the choosen frame and the result is transfered back to the calling frame. This makes a frame function allways promising.<br>
+          The frame name must be a string literal.<br><br>
+          How does it work?<br>
+          PromiseLand defines a very low level communication api. All you need to do is provide a frame Name, and implement a way those frames can send each other string messages. Read more on the frame wiki page. (tba)
+        </div></div>
       
       <div class="featurehead"><span class="enumeration progress">*</span>dynamic type safety</div>
-      <div class="featurebody">A Type safety check is available at comipile time. it generates runtime Errors vor type violations. Types can be imported via require and can be used in template functions, similar to C++ templates. They are assembled typesafe during runtime via eval.</div>
+      <div class="featurebody readMore">True freedom includes the freedom to choose, not to be free!<div class="more">Variables, Classes and Functions can be type safe if you want them to be. The typesafety is checked during compile time. Type Errors are being encoded as runtime Errors, to occur when a type violation is being executed. They are also available as warnings during compile time.
+        
+        <textarea class="promiseLandCode">
+class type ClassA { // typesafety is indicated by the type keyword
+  a: 1,
+  b: 2
+};
+
+class type ClassB {
+  c: 3,
+  d: 4
+};
+
+var var1 = 1;
+ClassA varA = new ClassA();
+ClassA varB = new ClassA();
+
+varA = varB; // will cause runtime error.
+          </textarea>
+        
+        <br>
+        The typesafe Classes can be used in variables by using the Type Name instead of the var keyword.
+        The Type Name is part of a new layer of Language Elements: Types.<br>
+        There is the build in Type "var" that is used for every classical javaScript variable. In addition you can create user defined types that exist parallel to the var keyword in the scope of the Type Definition.<br>
+        Additionally there is a variable for each defined type that exists as a regular Variable of type "var". You can use this variable to address the Type programmatically.
+        
+        <textarea class="promiseLandCode">
+class type ClassA { // typesafety is indicated by the type keyword
+  a: 1,
+  b: 2
+};
+
+var var1 = 1; // regular variable
+ClassA varA;  // ClassA is available on the keyword level since it has been defined in this scope.
+ClassA varA = new ClassA(); // the constructor of ClassA is returning a variable of type ClassA;
+
+var typeVariable = ClassA;  // variable containing the Type information about ClassA;
+
+return ClassA;              // you can return a Type in your Module, making it reuseable via require.
+          </textarea>
+        
+        <br>
+        Types can be exported and imported via require.<br>
+        However in a script that imports the type the Type is not available on the keyword level yet. This is where the seperation of the Type information variable and the Type definition becomes relevant.
+        You can use imported Types via templates. Yes allmost like c++ templates ;)
+        
+        <textarea class="promiseLandCode">
+var classA = require "modulepath/ClassA"; // import the Type from above in a different module.
+
+try{
+  //classA varA = new classA(); // this wont compile since classA is not defined as type;
+  var varA = new classA();      // there is no constructor available yet
+}catch(e){};
+
+var templateFun = &lt;{ types: { ClassA: classA } }&gt;(){ // template
+  ClassA varA = new ClassA();
+};
+
+templateFun();
+
+          </textarea>
+        
+        The Template is used to make compile time type safety available during run time. Since the Type information is not available during the compile time of the 2nd module, the final compilation happens at runtime. <br>
+        The template function is being assembled at execution time via eval(). This may make the code definint the template function slower. Once the function exists it is as fast as any directly programmed function.<br>
+        Class safety is programmed with execution time in mind. The defined Class Types are not using regular javaScript objects. Instead arrays are used which makes member lookup significantly faster. There is no data yet, but i hope typesafe Class variables will lead to measurable execution time boost.
+        
+        
+        </div></div>
 
       <div class="featurehead"><span class="enumeration resolved">*</span>new Callback()</div>
-      <div class="featurebody">A Callback class is provided to make it easy to communicate with classical assynchron javascript interfaces. var c = new Callback(); will create a instance of the Callback. the newly created object has two members. callback and promise. pass the callback member to the asynchron interface you want to use. for example reading a file in node.js. fs.readFile("filename.txt", c.callback); to access the result of the callback dereference the promise. (*c.promise)[0]. the result is an array containing all the parameters passed to the callback function. you need the brackets arround because of the operator order, that has been adopted from javaScript.</div>
+      <div class="featurebody readMore">Use the Callback class to programm classically asynchron javaScript apis.<div class="more">
+        <textarea class="promiseLandCode">var cb = new Callback();</textarea>
+        This creates a function that will resolve a promise once it has been called.<br>
+        You can pass it to a function that expects a callback. The member .promise is a Promise that resolves in a copy of the arguments Array.
+        <textarea class="promiseLandCode">var fs = require "fs"; // node file system
+
+var c = new Callback();
+
+fs.readFile("filename.txt", c); // pass the callback as parameter
+var args = *c.promise; // access the parameters via .promise
+
+if (args[0]){
+  console.log("error");
+}else{
+  console.log("success filecontent:");
+  console.log(args[1]);</textarea>
+        You could write your own Callback implementation that rejects when the node.js typical err argument is passed.
+        </div>
+</div>
 
       <div class="featurehead"><span class="enumeration pending">*</span>direct asm.js programming</div>
-      <div class="featurebody">transparent to the typesafety feature there will be a way to directly programm asm.js compatible code. one of the goals of promiseLand is to make it possible to create as fast as possible implementations. ams.js will be a important util to reach this goal.</div>
+      <div class="featurebody readMore">This is aimed to use the Type safety feature to directly code asm.js<div class="more">transparent to the typesafety feature there will be a way to directly programm asm.js compatible code. One of the goals of promiseLand is to make it possible to create as fast as possible implementations. ams.js will be a important util to reach this goal.</div></div>
       
       <div class="featurehead"><span class="enumeration pending">*</span>save / query</div>
-      <div class="featurebody">The idea is to provide a api for saving and loading data on the class level. Something like save variable; and load by passing the key to the constructor. In addition a query interface is neccessary.</div>
+      <div class="featurebody readMore">The idea is to provide a standardized api for saving and loading data on the class level. <div class="more">Something like save variable; and load by passing the key to the constructor. In addition a query interface is neccessary.<br>This is still on the drawing board.</div></div>
       
       <div class="featurehead">Caption</div>
       <div class="featurebody"><span class="enumeration resolved">*</span>Feature is fully implemented.</div>

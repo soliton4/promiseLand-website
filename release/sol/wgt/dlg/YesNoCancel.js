@@ -1,0 +1,4 @@
+//>>built
+define("sol/wgt/dlg/YesNoCancel",["dojo/_base/declare","dijit/Dialog","dojo/Deferred","dijit/form/Button","dojo/_base/lang"],function(d,e,f,a,c){return d([e],{constructor:function(){this._def=new f},buildRendering:function(){this.inherited(arguments)},show:function(){var b=this.inherited(arguments);this.yesButton||(this.yesButton=this.ownObj(new a({label:"Yes",onClick:c.hitch(this,"click",1)})),this.yesButton.placeAt(this.containerNode));this.noButton||(this.noButton=this.ownObj(new a({label:"No",
+onClick:c.hitch(this,"click",0)})),this.noButton.placeAt(this.containerNode));this.cancelButton||(this.cancelButton=this.ownObj(new a({label:"Cancel",onClick:c.hitch(this,"click",2)})),this.cancelButton.placeAt(this.containerNode));return b},click:function(b){this._def.resolve(b);this.destroy()},then:function(b,a){return this._def.then(b,a)}})});
+//# sourceMappingURL=YesNoCancel.js.map

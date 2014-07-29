@@ -2,6 +2,7 @@
 
 var ReadMore = require "./wgt/ReadMore";
 
+require "./mouseTrack";
 
 var query = require "dojo/query";
 

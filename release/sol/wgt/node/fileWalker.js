@@ -1,0 +1,3 @@
+//>>built
+define("sol/wgt/node/fileWalker",["dojo/node!fs","dojo/_base/array","dojo/Deferred","dojo/_base/declare","sol/promise/Counter"],function(a,h,e,l,k){var g=function(d,c,f){c.inc();a.readdir(d,function(b,e){b||h.forEach(e,function(b){c.inc();a.stat(d+"/"+b,function(e,a){e||(a.isDirectory()&&g(d+"/"+b,c,f),f({stats:a,filename:d+"/"+b}));c.dec()})});c.dec()})};return{walk:function(d,c){var a=new e,b=new k;g(d,b,c.fileFun);b.then(function(){a.resolve()});return a.promise}}});
+//# sourceMappingURL=fileWalker.js.map

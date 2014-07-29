@@ -1,0 +1,4 @@
+//>>built
+define("sol/wgt/node/npm",["dojo/node!npm","dojo/_base/declare","dojo/Deferred","dojo/_base/lang"],function(b,f,e,g){var d=new e;b.load(function(a){a?d.reject(a):d.resolve(b)});return{load:function(a){var c=new e;a.onLoad&&c.then(a.onLoad);a.onError&&c.then(void 0,a.onError);try{require(["dojo/node!"+a.name],function(a){c.resolve(a)})}catch(b){d.then(function(b){if(a.onInstall)try{a.onInstall(a)}catch(d){}b.commands.install([a.name],function(a,b){if(a)c.reject(a);else try{var d=process.cwd()+"/"+
+b[0][1];require(["dojo/node!"+d],function(a){c.resolve(a)})}catch(e){c.reject(e)}})})}return c}}});
+//# sourceMappingURL=npm.js.map

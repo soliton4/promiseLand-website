@@ -45,8 +45,8 @@
     
   };
   
-  defineFun(["promiseland"], function(promiseland){ var __require = requireFun;
-  
+defineFun(["promiseland"], function(promiseland){ var __require = requireFun;
+
   var __Promise = promiseland.Promise;
   var __modulePromise = new __Promise();
   var classSystem = promiseland.classSystem; 
@@ -65,42 +65,47 @@
   
   
 var Callback = promiseland.Callback;
-if (promiseland._hasModule({ hashStr: "df0dddb28a47a5076f63575269083ec9" })){ return promiseland._getModule("df0dddb28a47a5076f63575269083ec9"); };
+if (promiseland._hasModule({ hashStr: "411d8f9709c925bf7cb81b0f70a5fa65" })){ return promiseland._getModule("411d8f9709c925bf7cb81b0f70a5fa65"); };
 var _V1 = new __Promise();
-promiseland._registerModule({ hashStr: "df0dddb28a47a5076f63575269083ec9", "module": _V1, promising: true });
-var _V14/*node*/;try{_V14/*node*/ = node;}catch(e){};
-var _V16/*Infinity*/;try{_V16/*Infinity*/ = Infinity;}catch(e){};
-var _V18/*type:var*/ = __classSystem.getBuiltinType("var");
+promiseland._registerModule({ hashStr: "411d8f9709c925bf7cb81b0f70a5fa65", "module": _V1, promising: true });
+var _V17/*Infinity*/;try{_V17/*Infinity*/ = Infinity;}catch(e){};
+var _V19/*type:var*/ = __classSystem.getBuiltinType("var");
 var _V2 = (function(){
 "use strict";
 var _V3 = function(code){ return function(res){ try{code(res);}catch(e){ _V1.reject(e); }; }; };
 var _V4 = function(e){ _V1.reject(e); };
 var _V5/*ReadMore*/;
-var _V7/*query*/;
-var _V9/*nl*/;
-var _V10/*CodeMirror*/;
-var _V12/*plMode*/;
-_V3(function(){__requireFun("./wgt/ReadMore").then(_V3(function(_V6){_V5/*ReadMore*/ = _V6;
-__requireFun("dojo/query").then(_V3(function(_V8){_V7/*query*/ = _V8;
-_V9/*nl*/ = _V7/*query*/(".promiseLandCode");
-__requireFun("codemirror4/lib/codemirror").then(_V3(function(_V11){_V10/*CodeMirror*/ = _V11;
-__requireFun("codemirror4/mode/promiseland/promiseland").then(_V3(function(_V13){_V12/*plMode*/ = _V13;
-_V9/*nl*/["forEach"](function(_V14/*node*/){
-var _V15/*cm*/;
-_V15/*cm*/ = _V10/*CodeMirror*/["fromTextArea"](_V14/*node*/, {"mode": "text/promiseland",
+var _V8/*query*/;
+var _V10/*nl*/;
+var _V11/*CodeMirror*/;
+var _V13/*plMode*/;
+_V3(function(){;
+__requireFun("./wgt/ReadMore").then(_V3(function(_V6){_V5/*ReadMore*/ = _V6;
+__requireFun("./mouseTrack").then(_V3(function(_V7){_V7;;
+__requireFun("dojo/query").then(_V3(function(_V9){_V8/*query*/ = _V9;
+_V10/*nl*/ = _V8/*query*/(".promiseLandCode");
+__requireFun("codemirror4/lib/codemirror").then(_V3(function(_V12){_V11/*CodeMirror*/ = _V12;
+__requireFun("codemirror4/mode/promiseland/promiseland").then(_V3(function(_V14){_V13/*plMode*/ = _V14;
+_V10/*nl*/["forEach"]((function(_V15/*node*/){
+var _V16/*cm*/;
+;
+_V16/*cm*/ = _V11/*CodeMirror*/["fromTextArea"](_V15/*node*/, {"mode": "text/promiseland",
 "lineNumbers": true,
-"viewportMargin": _V16/*Infinity*/});
-});;
-_V9/*nl*/ = _V7/*query*/(".readMore");;
-_V9/*nl*/["forEach"](function(_V14/*node*/){
-var _V17/*w*/;
-_V17/*w*/ = new _V5/*ReadMore*/({}, _V14/*node*/);
-});;
-_V1.resolve( {}); return _V1;
+"viewportMargin": _V17/*Infinity*/});
+;
+}));;
+_V10/*nl*/ = _V8/*query*/(".readMore");;
+_V10/*nl*/["forEach"]((function(_V15/*node*/){
+var _V18/*w*/;
+;
+_V18/*w*/ = new _V5/*ReadMore*/({}, _V15/*node*/);
+;
+}));;
+_V1.resolve({}); return;;
 _V1.resolve(); return;;
-}));}));}));}));})();
+}));}));}));}));}));})();
 return _V1;
 })();
-;
+;;
 return _V1});
 })();

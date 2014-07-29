@@ -1,0 +1,8 @@
+{
+"version":3,
+"file":"events.js",
+"lineCount":2,
+"mappings":"A;AAEAA,MAAA,+EAIG,QAAA,CACDC,CADC,CAECC,CAFD,CAGCC,CAHD,QAOYF,EAAAG,iBAEEC,QAAAA,CAASC,CAATD,EACXE,YADWF,IAFFD,MAMHI,QAAAA,CAASC,CAATD,CAAmBE,CAAnBF,MAIJD,YAAA,CAAaE,CAAb,CAAA,CAAuBC,CAAvB,CAJIF,OAKCG,CALDH,EAMCD,YAAA,CAAaE,CAAb,CANDD,GAOFD,YAAA,CAAaE,CAAb,CAPED,CAOuB,QAAA,IAPvBA,GANGJ,IAqBLQ,QAAAA,CAASH,CAATG,CAAmBC,CAAnBD,QACGT,EAAAW,MAAA,CAAaP,YAAb,CAA2BE,CAA3B,CAAqCI,CAArC,IADHD,CArBKR,EAPZ,CAJH;",
+"sources":["events.js.uncompressed.js"],
+"names":["define","declare","lang","aspect","events","constructor","par","_events","emit","parEvent","parData","e","on","parFun","after"]
+}

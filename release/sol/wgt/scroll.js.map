@@ -1,0 +1,8 @@
+{
+"version":3,
+"file":"scroll.js",
+"lineCount":2,
+"mappings":"A;AAAAA,MAAA,uDAGG,QAAA,CACDC,CADC,CAECC,CAFD,MAIGC,CAJH,mBAOaC,QAAAA,OACLD,CADKC,MAEJC,EAAMJ,CAAA,IAEVI,EAAAC,QAAA,CAAYC,QAAAC,KAAZ,CAJQJ,KAMJK,EAAQP,CAAAQ,OAAA,wDAMZR,EAAAS,MAAA,CAAmBF,CAAnB,CAA0BJ,CAAAO,cAA1B,CAZQR,KAcJS,EAAQX,CAAAQ,OAAA,mCAKZR,EAAAS,MAAA,CAAmBE,CAAnB,CAA0BJ,CAA1B,CAEIK,EArBIV,CAqBIF,CAAAQ,OAAA,oDAMZR,EAAAS,MAAA,CAAmBG,CAAnB,CAA0BD,CAA1B,CAEAV,EA7BQC,IA8BHS,CAAAE,YA9BGX,CA8BiBU,CAAAC,YA9BjBX,GA+BDS,CAAAG,aA/BCZ,CA+BoBU,CAAAE,aA/BpBZ,CAkCRC,EAAAY,QAAA,EAlCQb,UAqCLD,CAAAe,EArCKd,GAsCHD,CAAAgB,EAtCGf,EAPb,EAHH;",
+"sources":["scroll.js.uncompressed.js"],
+"names":["define","Try","domConstruct","scrolldim","dimensions","wgt","placeAt","document","body","reset","create","place","containerNode","outer","inner","offsetWidth","offsetHeight","destroy","w","h"]
+}

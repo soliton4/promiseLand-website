@@ -214,6 +214,7 @@ Keyword
   / CaseToken
   / CatchToken
   / ClassToken  // promiseland
+  / ConnectToken // promiseland
   / ContinueToken
   / DebuggerToken
   / DefaultToken
@@ -244,7 +245,7 @@ FutureReservedWord
   = ConstToken
   / EnumToken
   / ExportToken
-  / ExtendsToken
+  // ExtendsToken // promiseland
   / ImportToken
   / SuperToken
 
@@ -481,6 +482,7 @@ BreakToken      = "break"      !IdentifierPart
 CaseToken       = "case"       !IdentifierPart
 CatchToken      = "catch"      !IdentifierPart
 ClassToken      = "class"      !IdentifierPart
+ConnectToken    = "connect"    !IdentifierPart
 ConstToken      = "const"      !IdentifierPart
 ContinueToken   = "continue"   !IdentifierPart
 DebuggerToken   = "debugger"   !IdentifierPart
@@ -498,6 +500,7 @@ FunctionToken   = "function"   !IdentifierPart
 GetToken        = "get"        !IdentifierPart
 IfToken         = "if"         !IdentifierPart
 ImportToken     = "import"     !IdentifierPart
+InheritedToken  = "inherited"  !IdentifierPart   // promiseland
 InstanceofToken = "instanceof" !IdentifierPart
 InToken         = "in"         !IdentifierPart
 NewToken        = "new"        !IdentifierPart
@@ -598,6 +601,19 @@ TemplateLiteral
      }
 
 
+ClassObjectLiteral // promiseland
+  = objLit:ObjectLiteral {
+      objLit.type = "ClassObjectExpression";
+      return objLit;
+    }
+  / "{" __ properties:PropertyNameAndValueList __ "}" {
+       return posRes({ type: "ClassObjectExpression", properties: properties });
+     }
+  / "{" __ properties:PropertyNameAndValueList __ "," __ "}" {
+       return posRes({ type: "ClassObjectExpression", properties: properties });
+     }
+
+
 ObjectLiteral
   = "{" __ "}" { return posRes({ type: "ObjectExpression", properties: [] }); }
   / "{" __ properties:PropertyNameAndValueList __ "}" {
@@ -613,13 +629,21 @@ PropertyNameAndValueList
     }
 
 PropertyAssignment
-  = /*typename:IdentifierName? __*/ key:PropertyName __ ":" __ value:AssignmentExpression? { // promiseland
-      return posRes({ key: key, value: value, kind: "init", typename: "var" }); // promiseland
+  = key:PropertyName __ ":" __ value:AssignmentExpression? { // promiseland
+      return posRes({ key: key, value: value, kind: "init"}); // promiseland
     }
-  / typename:IdentifierName __ key:PropertyName __ ":" __ value:AssignmentExpression? { // promiseland
+  / typename:Typename __ key:PropertyName __ ":" __ value:AssignmentExpression? { // promiseland
       return posRes({ key: key, value: value, kind: "init", typename: typename }); // promiseland
     }
-  / FunctionDeclaration
+  / funcDec:FunctionDeclaration { // promiseland
+      funcDec.kind = "function";
+      funcDec.type = "MemberFunction";
+      return funcDec;
+    }
+  / block:Block {
+      block.kind = "block"
+      return block;
+    }
   / GetToken __ key:PropertyName __
     "(" __ ")" __
     "{" __ body:FunctionBody __ "}"
@@ -663,8 +687,9 @@ PropertySetParameterList
 
 MemberExpression
   = first:(
-      FunctionExpression // promiseland
-      / ClassExpression
+      FunctionExpression  // promiseland
+      / ConnectExpression // promiseland
+      / ClassExpression   // promiseland
       / PrimaryExpression
       / NewToken __ callee:MemberExpression __ args:Arguments {
           return posRes({ type: "NewExpression", callee: callee, arguments: args }); // promiseland
@@ -688,6 +713,7 @@ MemberExpression
         });
       });
     }
+    
 
 NewExpression
   = MemberExpression
@@ -703,7 +729,26 @@ ProfileArguments  // promiseland
         properties: properties ? properties[0] : []
       });
     }
-    
+
+InheritedExpression // promiseland
+  = InheritedToken __ args:Arguments {
+      return posRes({
+        type: "InheritedExpression",
+        arguments: args
+      });
+    }
+  / InheritedToken __ exp:MemberExpression {
+      return posRes({
+        type: "InheritedExpression",
+        expression: exp
+      });
+    }
+  / InheritedToken {
+      return posRes({
+        type: "InheritedExpression"
+      });
+    }
+
 
 CallExpression
   = first:(
@@ -758,7 +803,8 @@ ArgumentList
     }
 
 LeftHandSideExpression
-  = CallExpression
+  = InheritedExpression // promiseland
+  / CallExpression
   / NewExpression
 
 PostfixExpression
@@ -799,7 +845,7 @@ UnaryExpression
     }
     
 PromiseOperator // promiseland
-  = "✡"
+  = "✡" { return "*"; }
   / "*"
     
 
@@ -807,7 +853,7 @@ UnaryOperator
   = $DeleteToken
   / $VoidToken
   / $TypeofToken
-  / $RequireToken // promiseland
+  / $RequireToken   // promiseland
   / "++"
   / "--"
   / $("+" !"=")
@@ -1022,7 +1068,13 @@ ConditionalExpressionNoIn
     }
 
 AssignmentExpression
-  = left:(exp:LeftHandSideExpression !( __ Operator) !( __ UnaryOperator){
+  = left:(exp:LeftHandSideExpression !( __ Operator) !( __ UnaryOperator) !( __ AssignmentOperator) !( __ "?"){
+      return exp;
+    })
+    {
+      return left;
+    }
+  / left:(exp:LeftHandSideExpression !( __ Operator) !( __ UnaryOperator){
       return exp;
     })
     rest: ( __ operator:AssignmentOperator __
@@ -1033,11 +1085,8 @@ AssignmentExpression
           right:    right
         }
       }
-    )?
+    )
     {
-      if (!rest){
-        return left;
-      };
       return posRes({
         type:     "AssignmentExpression",
         operator: rest.operator,
@@ -1114,7 +1163,7 @@ Statement
   / ContinueStatement
   / BreakStatement
   / ReturnStatement
-  / WithStatement
+  // WithStatement // promiseland
   / LabelledStatement
   / SwitchStatement
   / ThrowStatement
@@ -1138,7 +1187,7 @@ StatementList
 
 
 VariableStatementCoreSingle // promiseland
-  = typename:Identifier __ declarations:VariableDeclarationList {
+  = typename:Typename __ declarations:VariableDeclarationList {
       if (declarations.length > 1){
         throw new Error('Only one declaration allowed here ');
       };
@@ -1155,7 +1204,7 @@ VariableStatementCoreSingle // promiseland
 
 
 VariableStatementCore // promiseland
-  = typename:Identifier __ declarations:VariableDeclarationList {
+  = typename:Typename __ declarations:VariableDeclarationList {
       var i = 0;
       for (i = 0; i < declarations.length; ++i){
         declarations[i].typename = typename;
@@ -1401,6 +1450,20 @@ ThrowStatement
   = ThrowToken _ argument:Expression EOS {
       return posRes({ type: "ThrowStatement", argument: argument });
     }
+    
+    
+// promiseland
+
+ConnecteeExpression
+  = MemberExpression
+
+ConnectExpression
+  = ConnectToken __ signal:ConnecteeExpression __ slot:ConnecteeExpression {
+      return posRes({ type: "ConnectExpression", signal: signal, slot: slot });
+    }
+  / ConnectToken __ signal:ConnecteeExpression __ fun:Expression {
+      return posRes({ type: "ConnectExpression", signal: signal, fun: fun });
+    }
 
 TryStatement
   = TryToken __ block:Block __ handler:Catch __ finalizer:Finally {
@@ -1447,19 +1510,31 @@ DebuggerStatement
   /* class system */  // promiseland
   
 ClassBody
-  = literal:ObjectLiteral { return posRes({ "literal": literal }); }
+  = literal:ClassObjectLiteral { return posRes({ "literal": literal }); }
   / exp:Expression  { return posRes({ "expression": exp }); }
 
 
 ClassCombinations
-  = name:Identifier __ body:ClassBody { return posRes({ name: name, body: body }) }
-  / body:ClassBody { return posRes({ body: body }) }
+  = !ExtendsToken name:Identifier __ extendsClause:ClassExtendsClaus? __ body:ClassBody 
+    { 
+      return posRes({ name: name, body: body, extendsClause: extendsClause }) 
+    }
+  / extendsClause:ClassExtendsClaus? __ body:ClassBody 
+    { 
+      return posRes({ body: body, extendsClause: extendsClause }) 
+    }
+
+
+ClassExtendsList
+  = first:Expression rest:(__ "," __ MemberExpression)* {
+      return buildList(first, rest, 3);
+    }
 
 ClassExtendsClaus
-  = "extends" __ exp:Expression __ {
+  = ExtendsToken __ expList:ClassExtendsList __ {
     return posRes({
       "type": "extends",
-      "baseClass": exp
+      "baseClasses": expList
     });
   }
 
@@ -1471,11 +1546,15 @@ ClassSyncClaus
   / "sync" __ "some" __ { return posRes({ "type": "sync", "all": 0 }); }
   / "sync" __ { return posRes({ "type": "sync", "all": 1 }); }
 
+ClassTrackClaus
+  = "track" { return posRes({ "type": "track" }); }
+
+
 ClassKeyword
-  = ClassExtendsClaus
-  / ClassTypedClaus
+  = ClassTypedClaus
   / ClassSyncClaus
-  
+  / ClassTrackClaus
+
 ClassKeywords
   = arr:ClassKeyword+ {
   var present = {};
@@ -1491,10 +1570,11 @@ ClassKeywords
 ClassExpression
   =  ClassToken __ keywords:ClassKeywords? __ combination:ClassCombinations {
       return posRes({
-        type:       "Class",
-        name:       combination.name,
-        body:       combination.body,
-        "keywords": keywords
+        type:          "Class",
+        name:          combination.name,
+        body:          combination.body,
+        extendsClause: combination.extendsClause,
+        "keywords":    keywords
       });
     }
   
@@ -1508,22 +1588,46 @@ FrameKeyword // promiseland
 
 FrameInformation  // promiseland
   = keyword:FrameKeyword __ name:StringLiteral { return posRes({name: name, "type": keyword}); }
+  
+Typename
+  = name:Identifier _ deref:PromiseOperator* {
+    var i;
+    for (i = 0; i < deref.length; ++i){
+      name.name += "*";
+    };
+    return name;
+  }
 
+FunctionDeclarationFunId
+  = returnTypename:Typename __ id:Identifier 
+    { 
+      return {
+        returnTypename: returnTypename, 
+        id: id
+      };
+    } 
+  / id:Identifier 
+    { 
+      return {
+        id: id
+      };
+    }
 
 FunctionDeclaration
-  = FunctionToken? __ id:Identifier __ // promiseland
+  = FunctionToken? __ funId:FunctionDeclarationFunId __ // promiseland
     "(" __ params:(FormalParameterList __)? ")" __
     frame:FrameInformation? __
     promise:PromiseOperator? __
     "{" __ body:FunctionBody __ "}"
     {
       return posRes({
-        type:   "FunctionDeclaration",
-        id:     id,
-        params: optionalList(extractOptional(params, 0)),
-        body:   body,
-        promise:  promise, // promiseland
-        frame:    frame    // promiseland
+        type:           "FunctionDeclaration",
+        id:             funId.id,
+        returnTypename: funId.returnTypename,
+        params:         optionalList(extractOptional(params, 0)),
+        body:           body,
+        promise:        promise, // promiseland
+        frame:          frame    // promiseland
       });
     }
   / template:TemplateLiteral __ FunctionToken? __ id:Identifier __ // promiseland
@@ -1542,42 +1646,74 @@ FunctionDeclaration
         template: template // promiseland
       });
     }
+    
+FunctionExpressionFunId
+  = returnTypename:Typename __ id:Identifier 
+    { 
+      return {
+        returnTypename: returnTypename, 
+        id: id
+      };
+    }
+  / returnTypename:Typename? 
+    { 
+      return {
+        returnTypename: returnTypename
+      }; 
+    }
 
 FunctionExpression
-  = FunctionToken? __ id:(Identifier __)?  // promiseland
+  = FunctionToken? __ funId:FunctionExpressionFunId __  // promiseland
     "(" __ params:(FormalParameterList __)? ")" __
     frame:FrameInformation? __
     promise:PromiseOperator? __
     "{" __ body:FunctionBody __ "}"
     {
       return posRes({
-        type:   "FunctionExpression",
-        id:     extractOptional(id, 0),
-        params: optionalList(extractOptional(params, 0)),
-        body:   body,
-        promise:  promise, // promiseland
-        frame:    frame    // promiseland
+        type:           "FunctionExpression",
+        id:             funId.id,
+        returnTypename: funId.returnTypename,
+        params:         optionalList(extractOptional(params, 0)),
+        body:           body,
+        promise:        promise, // promiseland
+        frame:          frame    // promiseland
       });
     }
-  / template:TemplateLiteral __ FunctionToken? __ id:(Identifier __)?  // promiseland
+  / template:TemplateLiteral __ FunctionToken? __ funId:FunctionExpressionFunId __  // promiseland
     "(" __ params:(FormalParameterList __)? ")" __
     frame:FrameInformation? __
     promise:PromiseOperator? __
     "{" __ body:FunctionBody __ "}"
     {
       return posRes({
-        type:   "FunctionExpression",
-        id:     extractOptional(id, 0),
-        params: optionalList(extractOptional(params, 0)),
-        body:   body,
-        promise:  promise, // promiseland
-        frame:    frame,   // promiseland
-        template: template // promiseland
+        type:           "FunctionExpression",
+        id:             funId.id,
+        returnTypename: funId.returnTypename,
+        params:         optionalList(extractOptional(params, 0)),
+        body:           body,
+        promise:        promise, // promiseland
+        frame:          frame,   // promiseland
+        template:       template // promiseland
       });
+    }
+
+FormalParameterListItem
+  = typename:Typename __ name:Identifier
+    {
+      return {
+        name: name,
+        typename: typename
+      };
+    }
+  / name:Identifier
+    {
+      return {
+        name: name
+      };
     }
 
 FormalParameterList
-  = first:Identifier rest:(__ "," __ Identifier)* {
+  = first:FormalParameterListItem rest:(__ "," __ FormalParameterListItem)* {
       return buildList(first, rest, 3);
     }
 
@@ -1589,12 +1725,28 @@ FunctionBody
       });
     }
 
-Program
-  = body:SourceElements? {
+ProgramConfig
+  = TemplateLiteral
+
+ProgramElements 
+  = body:SourceElements { // promiseland
       return posRes({
         type: "Program",
         body: optionalList(body)
       });
+    }
+  / EOS { // promiseland
+      return posRes({
+        type: "Program",
+        body: []
+      });
+    }
+
+Program
+  = ProgramElements
+  / config:ProgramConfig __ program:ProgramElements { // promiseland
+      program.config = config;
+      return program;
     }
 
 SourceElements
@@ -1603,8 +1755,8 @@ SourceElements
     }
 
 SourceElement
-  = Statement
-  / FunctionDeclaration
+  = FunctionDeclaration
+  / Statement
 
 /* ----- A.6 Universal Resource Identifier Character Classes ----- */
 

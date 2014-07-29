@@ -1,0 +1,3 @@
+//>>built
+define("sol/wgt/convenient/Delayed",["dojo/_base/declare"],function(c){return c([],{constructor:function(a,b){this.fun=b;this.delay=a.delay||100},exec:function(a){this.cancel();try{this.timeout=setTimeout(this.fun,void 0!==a?a:this.delay)}catch(b){this.timeout=setTimeout(this.fun,this.delay)}},execNow:function(){this.cancel();this.fun()},cancel:function(){this.timeout&&(clearTimeout(this.timeout),delete this.timeout)},destroy:function(){this.inherited(arguments);this.cancel()}})});
+//# sourceMappingURL=Delayed.js.map

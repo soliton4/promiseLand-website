@@ -67,6 +67,7 @@ var profile = (function(){
             "dojo/dojo": {
               include: [ 
                   "app/app"
+                //, "app/mouseTrack"
                 , "dojo/selector/lite"
                 , "promiseland/main"
                 , "promiseland/promiseland"
