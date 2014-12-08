@@ -1,0 +1,110 @@
+return 'function(){
+  mainTask = new Promise();
+  
+  // helper functions to prevent the code from completely blowing up
+  function resolveWithCleanup(data, extrastep){
+    try{
+      neccessaryCleanup().then(function(){
+        if (extrastep){
+          try{
+            extraCleanup().then(function(){
+              mainTask.resolve(data);
+            }, function(reason){
+              mainTask.reject(reason);
+            });
+          }catch(e){
+            mainTask.reject(e);
+          };
+        }else{
+          mainTask.resolve(data);
+        };
+      }, function(reason){
+        mainTask.reject(reason);
+      });
+    }catch(e){
+      mainTask.reject(e);
+    };
+  };
+  function rejectWithCleanup(reason, extrastep){
+    try{
+      neccessaryCleanup().then(function(){
+        if (extrastep){
+          try{
+            extraCleanup().then(function(){
+              mainTask.reject(reason);
+            }, function(reason){
+              mainTask.reject(reason);
+            });
+          }catch(e){
+            mainTask.reject(e);
+          };
+        }else{
+          mainTask.reject(reason);
+        };
+      }, function(reason){
+        mainTask.reject(reason);
+      });
+    }catch(e){
+      mainTask.reject(e);
+    };
+  };
+  
+  // the main logic
+  getUserInteractionPromise().then(function(userInput){
+
+    if (userInput == "read File"){
+      fs.readFile("filename", function(err, fileRes){
+        try{
+          if (err){
+            rejectWithCleanup(err);
+            return;
+          };
+          myDatabase.getDataByFileContent(fileRes).then(function(data){
+            try{
+              data = checkDataIntegrity(data);
+              resolveWithCleanup(data);
+            }catch(e){
+              rejectWithCleanup(e);
+            };
+          }, function(dbReason){
+            rejectWithCleanup(dbReason);
+          });
+        }catch(e){
+          rejectWithCleanup(e);
+        };
+      });
+
+    }else if (userInput == "read Url"){
+      someExtraInitialization().then(function(){
+        ajax.get("someurl").then(function(ajaxData){
+          try{
+            myDatabase.getDataByUrlContent(ajaxData).then(function(data){
+              try{
+                data = checkDataIntegrity(data);
+                resolveWithCleanup(data, true); // extra cleanup neccessary from now on
+              }catch(e){
+                rejectWithCleanup(e, true);
+              };
+            }, function(dbReason){
+              rejectWithCleanup(dbReason, true);
+            });
+          }catch(e){
+            rejectWithCleanup(e, true);
+          };
+        }, function(reason){
+          rejectWithCleanup(reason, true); 
+        });
+      }, function(reason){
+        rejectWithCleanup(reason, true); // extra cleanup neccessary
+      });
+
+    }else{
+      rejectWithCleanup("invalid input");
+    };
+
+  }, function(){
+    // cancel
+    rejectWithCleanup("user breakup");
+  });
+  return mainTask;
+};';

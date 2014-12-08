@@ -1,0 +1,136 @@
+
+console.log("welcome to promiseLand!");
+  
+var domConstruct = require "dojo/dom-construct";
+
+var background = domConstruct.create("div", {class: "background"});
+domConstruct.place(background, document.body);
+
+
+var backgroundText = require "./backgroundText";
+var i = 0;
+for (i = 0; i < 100; ++i){
+  domConstruct.place(document.createTextNode(backgroundText), background);
+};
+
+
+var openSans = domConstruct.create("link", {
+  href: "//fonts.googleapis.com/css?family=Open+Sans:300italic,300,400italic,400,600italic,600,700italic,700,800italic,800",
+  rel: "stylesheet",
+  type: "text/css"
+});
+domConstruct.place(openSans, document.head);
+
+
+var git = domConstruct.create("a", {
+  href: "https://github.com/soliton4/promiseland"
+});
+domConstruct.place(domConstruct.create("img", {
+  style: "position: absolute; z-Index: 100; top: 0; right: 0; border: 0;",
+  src: "https://camo.githubusercontent.com/52760788cde945287fbb584134c4cbc2bc36f904/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f77686974655f6666666666662e706e67",
+  alt: "Fork me on GitHub",
+  "data-canonical-src": "https://s3.amazonaws.com/github/ribbons/forkme_right_white_ffffff.png"
+}), git);
+domConstruct.place(git, document.body);
+
+  
+var head = domConstruct.create("div", {class: "head"});
+domConstruct.place(head, document.body);
+var head1 = domConstruct.create("div", {class: "head1"});
+domConstruct.place(head1, head);
+domConstruct.place(document.createTextNode("promiseLand"), head1);
+document.title = "promiseLand";
+
+var head2 = domConstruct.create("div", {class: "head2"});
+domConstruct.place(head2, head);
+domConstruct.place(document.createTextNode("a very promising Language"), head2);
+
+var domClass = require "dojo/dom-class";
+domClass.add(document.body, "claro");
+
+var MenuBar = require "dijit/MenuBar";
+var MenuBarItem = require "dijit/MenuBarItem";
+
+var bar = new MenuBar({
+  class: "theMenu"
+});
+bar.placeAt(head);
+bar.startup();
+
+var barItem = new MenuBarItem({
+  label: "Features",
+  onClick: (){
+    window.location = "https://github.com/soliton4/promiseland/wiki/Features";
+  }
+});
+bar.addChild(barItem);
+
+bar.addChild(new MenuBarItem({
+  label: "Give Feedback",
+  onClick: (){
+    window.location = "https://github.com/soliton4/promiseland/issues"
+  }
+}));
+
+bar.addChild(new MenuBarItem({
+  label: "get involved",
+  onClick: (){
+    window.location = "https://github.com/soliton4/promiseland"
+  }
+}));
+
+bar.addChild(new MenuBarItem({
+  label: "download",
+  onClick: (){
+    window.location = "https://github.com/soliton4/promiseland"
+  }
+}));
+
+
+var CodeMirror = require "sol/wgt/CodeMirrorSimple";
+var jsmode = require "codemirror4/mode/javascript/javascript";
+var plmode = require "codemirror4/mode/promiseland/promiseland";
+
+
+
+var cbhell = domConstruct.create("div", {
+  class: "cbhell-sign"
+});
+domConstruct.place(document.createTextNode("callback hell"), cbhell);
+domConstruct.place(cbhell, document.body);
+
+
+var cm = new CodeMirror({
+  class: "callbackhell",
+  theme: "xq-dark",
+  mode: "javascript",
+  value: require "./callbackHellText"
+});
+cm.placeAt(document.body);
+cm.startup();
+/*cm.resize({
+  h: 700
+});*/
+
+
+var pland = domConstruct.create("div", {
+  class: "pland-sign"
+});
+domConstruct.place(document.createTextNode("promiseland solution"), pland);
+domConstruct.place(pland, document.body);
+
+
+var cm2 = new CodeMirror({
+  class: "promiselandcode",
+  theme: "solarized",
+  mode: "promiseland",
+  value: require "./promiseLandText"
+});
+cm2.placeAt(document.body);
+cm2.startup();
+/*cm2.resize({
+  w: 450,
+  h: 700
+});*/
+
+//cm.mirror.refresh();

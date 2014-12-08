@@ -1,0 +1,30 @@
+try{
+  var Fw = require "promiseland-webframework";
+  var clientDirs = [
+    "app", 
+    "codemirror4", 
+    "dojo",
+    "dijit",
+    "sol",
+    "style",
+    "image"
+  ];
+  
+  var dirs = [];
+  var i = 0;
+  for (i = 0; i < clientDirs.length; ++i){
+    dirs.push({
+      client: "/" + clientDirs[i],
+      server: __dirname + "/"  + clientDirs[i] + "/"
+    });
+  };
+  
+  var fw = new Fw({
+    load: "app/index",
+    dirs: dirs,
+    css: ["style/style2.css"]
+  });
+  fw.listen(3004);
+}catch(e){
+  console.log(e);
+};

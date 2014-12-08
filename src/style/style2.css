@@ -1,0 +1,131 @@
+@import url("../codemirror4/lib/codemirror.css");
+@import url("../codemirror4/theme/midnight.css");
+@import url("../codemirror4/theme/xq-dark.css");
+@import url("../codemirror4/theme/solarized.css");
+@import url('../dijit/themes/claro/claro.css');
+body {
+  background-color: #888;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-family: "Open Sans";
+  font-weight: lighter;
+}
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #000020;
+  color: #337;
+  Word-Wrap: Break-word;
+  overflow: hidden;
+  z-Index: 0;
+  font-family: Fixed, monospace;
+}
+.head {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100px;
+  color: #FEE;
+  z-Index: 1;
+  background-color: rgba(51, 51, 119, 0.9);
+}
+.head .head1 {
+  font-size: 28px;
+  text-align: center;
+  text-shadow: 2px 2px 3px #000000;
+}
+.head .head2 {
+  font-size: 18px;
+  text-align: center;
+}
+.claro .dijitMenuBar.theMenu {
+  background-color: #337;
+  color: #EEE;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.claro .dijitMenuBar.theMenu .dijitMenuItem {
+  color: #FFF;
+  text-shadow: 2px 2px 2px #000000;
+}
+.cbhell-sign {
+  position: absolute;
+  top: 120px;
+  left: 2%;
+  height: 30px;
+  background-color: #337;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  color: #FEE;
+  padding-right: 10px;
+  padding-left: 10px;
+  padding-top: 3px;
+  font-size: 18px;
+  z-Index: 10;
+}
+.pland-sign {
+  position: absolute;
+  top: 120px;
+  left: 51%;
+  height: 30px;
+  background-color: #337;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  color: #FEE;
+  padding-right: 10px;
+  padding-left: 10px;
+  padding-top: 3px;
+  font-size: 18px;
+  z-Index: 10;
+}
+.callbackhell {
+  z-Index: 20;
+  position: absolute;
+  top: 150px;
+  left: 2%;
+  width: 47%;
+  height: 700px;
+}
+.callbackhell .CodeMirror::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("../image/hell1.png");
+  opacity: 0.4;
+}
+.callbackhell .CodeMirror {
+  height: 700px;
+}
+.promiselandcode {
+  z-Index: 20;
+  position: absolute;
+  top: 150px;
+  left: 51%;
+  width: 47%;
+  height: 700px;
+}
+.promiselandcode .CodeMirror::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("../image/heaven1.png");
+  background-position: -150px 0px;
+  opacity: 0.35;
+}
+.promiselandcode .CodeMirror {
+  height: 700px;
+}
