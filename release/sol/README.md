@@ -1,4 +1,0 @@
-sol-amd
-=======
-
-amd toolbox

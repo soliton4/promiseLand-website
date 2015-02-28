@@ -1,4 +1,0 @@
-//>>built
-define("codemirror4/test/phantom_driver",["dojo","dijit","dojox"],function(e,f,g){function c(a,b){a()?b():setTimeout(function(){c(a,b)},250)}var a=require("webpage").create();a.open("http://localhost:3000/test/index.html",function(d){"success"!=d&&phantom.exit(1);c(function(){return a.evaluate(function(){var a=document.getElementById("status");return!a?!1:/^(\d+ failures?|all passed)/i.test(a.innerText)})},function(){var b=a.evaluate(function(){return window.failed});a.evaluate(function(){return document.getElementById("output").innerText+
-"\n"+document.getElementById("status").innerText});phantom.exit(0<b?1:0)})})});
-//# sourceMappingURL=phantom_driver.js.map

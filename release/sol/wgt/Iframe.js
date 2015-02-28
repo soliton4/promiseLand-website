@@ -1,4 +1,0 @@
-//>>built
-define("sol/wgt/Iframe",["dojo/_base/declare","dojo/_base/lang","dijit/_WidgetBase","dojo/dom-construct","dojo/dom-attr"],function(b,f,c,d,e){return b([c],{buildRendering:function(){var a={};this.src&&(a.src=this.src);this.innerHTML&&(a.innerHTML=this.innerHTML);this.domNode=d.create("iframe",a);this.inherited(arguments)},_setSrcAttr:function(a){e.set(this.domNode,"src",a)},_setInnerHTMLAttr:function(a){this._set("innerHTML",a);this._started&&(this.domNode.contentWindow.document.open("text/html",
-"replace"),this.domNode.contentWindow.document.write(this.innerHTML),this.domNode.contentWindow.document.close())},_getDocumentAttr:function(){return this.domNode.contentDocument||this.domNode.contentWindow&&this.domNode.contentWindow.document},startup:function(){this._started||(this.inherited(arguments),this.innerHTML&&this.set("innerHTML",this.innerHTML))}})});
-//# sourceMappingURL=Iframe.js.map

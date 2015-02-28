@@ -1,8 +1,0 @@
-{
-"version":3,
-"file":"string.js",
-"lineCount":2,
-"mappings":"A;AAAAA,MAAA,qBAA6B,QAAA,mBAEfC,QAAAA,CAASC,CAATD,CAAiBE,CAAjBF,QACJC,EAAAE,OAAA,CAAcF,CAAAG,OAAd,CAA8BF,CAAAE,OAA9B,CADIJ,EACiDE,CADjDF,OAFe,YAQXK,QAAAA,CAASJ,CAATI,CAAiBC,CAAjBD,QACRJ,EAAAE,OAAA,GAAiBG,CAAAF,OAAjB,CADQC,EACkCC,CADlCD,OARW,QAcfE,QAAAA,CAASN,CAATM,CAAiBC,CAAjBD,QACDN,EAAAE,OAAA,GAAiBF,CAAAG,OAAjB,CAAiCI,CAAjC,CADCD,CAde,UAiBbE,QAAAA,CAASR,CAATQ,CAAiBD,CAAjBC,QACHR,EAAAE,OAAA,CAAcK,CAAd,CADGC,CAjBa,EAA7B;",
-"sources":["string.js.uncompressed.js"],
-"names":["define","endsWith","parStr","parEndsWith","substr","length","startsWith","parStartsWith","cutEnd","parLen","cutStart"]
-}

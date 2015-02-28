@@ -1,4 +1,0 @@
-//>>built
-(function(a){"object"==typeof exports&&"object"==typeof module?a(require("../../lib/codemirror")):"function"==typeof define&&define.amd?define("codemirror4/addon/edit/continuelist",["../../lib/codemirror"],a):a(CodeMirror)})(function(a){var k=/^(\s*)([*+-]|(\d+)\.)(\s*)/;a.commands.newlineAndIndentContinueMarkdownList=function(b){if(b.getOption("disableInput"))return a.Pass;for(var f=b.listSelections(),h=[],d=0;d<f.length;d++){var e=f[d].head,c,g=!1!==b.getStateAfter(e.line).list;if(!f[d].empty()||
-!g||!(c=b.getLine(e.line).match(k))){b.execCommand("newlineAndIndent");return}var e=c[1],g=c[4],l=0<="*+-".indexOf(c[2])?c[2]:parseInt(c[3],10)+1+".";h[d]="\n"+e+l+g}b.replaceSelections(h)}});
-//# sourceMappingURL=continuelist.js.map

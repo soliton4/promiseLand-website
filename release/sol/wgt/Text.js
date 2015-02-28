@@ -1,4 +1,0 @@
-//>>built
-define("sol/wgt/Text",["dojo/_base/declare","dijit/_WidgetBase","dojo/dom-construct","dojo/_base/lang"],function(c,d,a,e){return c([d],{tagName:"span",tagAttributes:{},buildRendering:function(){var b=e.mixin({},this.tagAttributes);this["class"]&&(b["class"]=this["class"]);this.style&&(b.style=this.style);this.domNode=a.create(this.tagName,this.tagAttributes);this.textNode=document.createTextNode(this.text);a.place(this.textNode,this.domNode)},_setTextAttr:function(b){this.textNode&&(a.destroy(this.textNode),
-this.textNode=document.createTextNode(this.text),a.place(this.textNode,this.domNode))}})});
-//# sourceMappingURL=Text.js.map

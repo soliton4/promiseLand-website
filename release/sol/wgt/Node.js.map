@@ -1,8 +1,0 @@
-{
-"version":3,
-"file":"Node.js",
-"lineCount":2,
-"mappings":"A;AAAAA,MAAA,kGAKG,QAAA,CACDC,CADC,CAECC,CAFD,CAGCC,CAHD,CAICC,CAJD,QAMMH,EAAA,EAASG,CAAT,gCAEaC,QAAAA,GAChBC,YADgBD,CACDF,CAAAI,OAAA,CAAoBC,YAApB,CAAkCC,kBAAlC,CADCJ,OAETK,eAAA,CAAeC,SAAf,CAFSN,CAFb,EANN,CALH;",
-"sources":["Node.js.uncompressed.js"],
-"names":["define","declare","lang","domConstruct","_WidgetBase","buildRendering","domNode","create","tagName","tagAttributes","inherited","arguments"]
-}

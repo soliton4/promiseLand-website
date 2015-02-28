@@ -1,5 +1,0 @@
-//>>built
-(function(b){"object"==typeof exports&&"object"==typeof module?b(require("../../lib/codemirror"),require("../../mode/css/css")):"function"==typeof define&&define.amd?define("codemirror4/addon/hint/css-hint",["../../lib/codemirror","../../mode/css/css"],b):b(CodeMirror)})(function(b){var m={link:1,visited:1,active:1,hover:1,focus:1,"first-letter":1,"first-line":1,"first-child":1,before:1,after:1,lang:1};b.registerHelper("hint","css",function(c){function d(a){for(var b in a)(!g||0==b.lastIndexOf(g,
-0))&&k.push(b)}var h=c.getCursor(),e=c.getTokenAt(h),a=b.innerMode(c.getMode(),e.state);if("css"==a.mode.name){var g=e.string;c=e.start;var l=e.end;/[^\w$_-]/.test(g)&&(g="",c=l=h.ch);var f=b.resolveMode("text/css"),k=[],a=a.state.state;if("pseudo"==a||"variable-3"==e.type)d(m);else if("block"==a||"maybeprop"==a)d(f.propertyKeywords);else if("prop"==a||"parens"==a||"at"==a||"params"==a)d(f.valueKeywords),d(f.colorKeywords);else if("media"==a||"media_parens"==a)d(f.mediaTypes),d(f.mediaFeatures);if(k.length)return{list:k,
-from:b.Pos(h.line,c),to:b.Pos(h.line,l)}}})});
-//# sourceMappingURL=css-hint.js.map

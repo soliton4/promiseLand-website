@@ -1,8 +1,0 @@
-{
-"version":3,
-"file":"all.js",
-"lineCount":2,
-"mappings":"A;AAAAA,MAAA,8BAAqC,+GAAA,MAAA,KAArC,CAAgL,QAAA,SAAmB,6FAAA,MAAA,KAAnB,CAAhL;",
-"sources":["all.js.uncompressed.js"],
-"names":["define"]
-}

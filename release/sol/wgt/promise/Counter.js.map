@@ -1,8 +1,0 @@
-{
-"version":3,
-"file":"Counter.js",
-"lineCount":2,
-"mappings":"A;AAAAA,MAAA,kEAGG,QAAA,CACDC,CADC,CAEDC,CAFC,QAKaA,EAAAC,iBACCC,QAAAA,GACXC,UADWD,GADDD,KAKLG,QAAAA,GACLD,UADKC,GALKH,KAQLI,QAAAA,GACLF,UADKE,EAELC,mBAAA,EAFKD,CARKJ,MAaJM,QAAAA,CAASC,CAATD,CAAeE,CAAfF,EACDG,QADCH,GAEJG,QAFIH,CAEO,IAAIR,CAFXQ,CAGJD,kBAAA,EAHIC,CAKNG,SAAAH,KAAA,CAAcC,CAAd,CAAoBC,CAApB,CALMF,CAbIN,eAqBKK,QAAAA,IACXH,UADWG,EACII,QADJJ,EAIfI,QAAAC,QAAA,EAJeL,CArBLL,EALb,CAHH;",
-"sources":["Counter.js.uncompressed.js"],
-"names":["define","Deferred","declare","Counter","constructor","count","inc","dec","_checkCounter","then","par1","par2","def","resolve"]
-}

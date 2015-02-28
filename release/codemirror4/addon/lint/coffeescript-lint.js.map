@@ -1,8 +1,0 @@
-{
-"version":3,
-"file":"coffeescript-lint.js",
-"lineCount":3,
-"mappings":"A;AAIC,SAAA,CAASA,CAAT,kBACYC,QADZ,kBAC0CC,OAD1C,CAEGF,CAAA,CAAIG,OAAA,wBAAJ,CAFH,mBAGiBC,OAHjB,EAGyCA,MAAAC,IAHzC,CAIGD,MAAA,qEAA6EJ,CAA7E,CAJH,CAMGA,CAAA,CAAIM,UAAJ,CANH,EAAA,CAOE,QAAA,CAASA,CAAT,EAGHA,CAAAC,eAAA,uBAAkD,QAAA,CAASC,CAAT,MAC5CC,IAD4C,SAU1CC,EAAMC,UAAAC,KAAA,CAAgBJ,CAAhB,CAVoC,KAWtCK,CAXsC,GAW/BA,CAX+B,CAW3BH,CAAAI,OAX2B,CAWfD,CAXe,QAYjC,EAAAH,CAAA,CAAIG,CAAJ,CAZiC,CAG1CE,EAAMC,CAAAC,WACVR,EAAAS,KAAA,OAAkBZ,CAAAa,IAAA,CAAeJ,CAAf,KAAlB,IACgBT,CAAAa,IAAA,CAAeJ,CAAf,GADhB,UAEsBC,CAAAI,MAFtB,SAGqBJ,CAAAK,QAHrB,EAJ8C,QAcxCC,CAdwC,EAe9Cb,CAAAS,KAAA,OAAkBZ,CAAAa,IAAA,CAAeG,CAAAC,SAAAC,WAAf;EAAlB,IACgBlB,CAAAa,IAAA,CAAeG,CAAAC,SAAAE,UAAf,CAAqCH,CAAAC,SAAAG,YAArC,CADhB,0BAGqBJ,CAAAD,QAHrB,EAf8C,OAoBzCZ,EApByC,CAAlD,CAHG,CAPF;",
-"sources":["coffeescript-lint.js.uncompressed.js"],
-"names":["mod","exports","module","require","define","amd","CodeMirror","registerHelper","text","found","res","coffeelint","lint","i","length","loc","err","lineNumber","push","Pos","level","message","e","location","first_line","last_line","last_column"]
-}

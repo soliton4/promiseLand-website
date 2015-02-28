@@ -1,4 +1,0 @@
-//>>built
-define("sol/wgt/mixin/resize",["dojo/_base/declare","dojo/dom-geometry","dojo/_base/lang","dojo/dom-style"],function(f,c,k,g){return f([],{constructor:function(){this._contentBox||(this._contentBox={l:0,t:0,w:0,h:0})},resize:function(h,f){var b=this.domNode;h&&c.setMarginBox(b,h);var a=f||{};k.mixin(a,h||{});if(!("h"in a)||!("w"in a))a=k.mixin(c.getMarginBox(b),a);var d=g.getComputedStyle(b),e=c.getMarginExtents(b,d),l=c.getBorderExtents(b,d),a=this._borderBox={w:a.w-(e.w+l.w),h:a.h-(e.h+l.h)},e=
-c.getPadExtents(b,d);this._contentBox={l:g.toPixelValue(b,d.paddingLeft),t:g.toPixelValue(b,d.paddingTop),w:a.w-e.w,h:a.h-e.h};this.layout()},layout:function(){this.inherited(arguments)},_getContentBoxAttr:function(){return this._contentBox}})});
-//# sourceMappingURL=resize.js.map

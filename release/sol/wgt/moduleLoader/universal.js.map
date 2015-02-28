@@ -1,8 +1,0 @@
-{
-"version":3,
-"file":"universal.js",
-"lineCount":3,
-"mappings":"A;AAAAA,MAAA,qCAA6C,QAAA,kBAG9BC,QAAAA,y0CAH8B;QAM9BC,QAAAA,0BAN8B,cASzBC,QAAAA,CAASC,CAATD,MACVE,EAAOJ,YAAA,EACNG,EAAA,CAAI,QAAJ,CAFSD,EAKZE,CALYF,EAKJC,CAAAC,KALIF,CAOZE,CAPYF,CAMZE,CANYF,kBAOQC,CAAA,CAAI,QAAJ,CAPRD,SAGZE,CAHYF,YAGQC,CAAAC,KAHRF,OASdE,EATcF,EASND,YAAA,EATMC,CATyB,EAA7C;",
-"sources":["universal.js.uncompressed.js"],
-"names":["define","headStr","footStr","createModule","par","code"]
-}

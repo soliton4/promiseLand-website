@@ -1,8 +1,0 @@
-{
-"version":3,
-"file":"less_test.js",
-"lineCount":4,
-"mappings":"A;AACAA,MAAA,2DAAmE,QAAA,CAASC,CAAT,CAAcC,CAAd,CAAoBC,CAApB,EAClE,SAAA,GAICC,QAASA,EAATA,CAAYC,CAAZD,EAAoBE,IAAAC,KAAA,CAAUF,CAAV,CAAgBE,CAAhB,CAAsBC,KAAAC,UAAAC,MAAAC,KAAA,CAA2BC,SAA3B,GAAtB,QAApBR,CAJD,IAGKG,EAAOM,UAAAC,QAAA,8BAGXV,EAAA,+OAOAA,EAAA;sKAUAA,EAAA;0KAeAA,EAAA,iQAtCD,EAAA,EADkE,CAAnE;",
-"sources":["less_test.js.uncompressed.js"],
-"names":["define","dojo","dijit","dojox","MT","name","test","mode","Array","prototype","slice","call","arguments","CodeMirror","getMode"]
-}

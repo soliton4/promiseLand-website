@@ -1,8 +1,0 @@
-{
-"version":3,
-"file":"multiplex_test.js",
-"lineCount":2,
-"mappings":"A;AACAA,MAAA,kEAA0E,QAAA,CAASC,CAAT,CAAcC,CAAd,CAAoBC,CAApB,EACzE,SAAA,GACCC,UAAAC,WAAA,sBAA4C,QAAA,OACtCC,EAAQF,UAAAG,QAAA,WAD8B,CAEtCC,EAAQJ,UAAAG,QAAA,eAF8B,OAYnCH,WAAAK,iBAAA,CAA4BD,CAA5B,0BALCF,CAKD,wCAZmC,CAA5C,CADD,KAgBKI,EAAON,UAAAG,QAAA,yBAEXI,UAAAA,CAAYC,CAAZD,EACEE,IAAAH,KAAA,CACEE,CADF,CAEEF,CAFF,CAGEI,KAAAC,UAAAC,MAAAC,KAAA,CAA2BC,SAA3B,GAHF,gBADFP,EAQA,qFA1BD,EAAA,EADyE,CAA1E;",
-"sources":["multiplex_test.js.uncompressed.js"],
-"names":["define","dojo","dijit","dojox","CodeMirror","defineMode","inner","getMode","outer","multiplexingMode","mode","MT","name","test","Array","prototype","slice","call","arguments"]
-}

@@ -20,11 +20,11 @@ try{
   };
   
   var fw = new Fw({
-    load: "app/index",
+    load: "app/wrapper-built",
     dirs: dirs,
     css: ["style/style2.css"]
   });
-  fw.listen(3004);
+  fw.listen(4011);
 }catch(e){
   console.log(e);
 };

@@ -1,3 +1,0 @@
-//>>built
-define("sol/wgt/promise/Counter",["dojo/Deferred","dojo/_base/declare"],function(b,a){return a([],{constructor:function(){this.count=0},inc:function(){this.count++},dec:function(){this.count--;this._checkCounter()},then:function(a,c){this.def||(this.def=new b,this._checkCounter());this.def.then(a,c)},_checkCounter:function(){!this.count&&this.def&&this.def.resolve()}})});
-//# sourceMappingURL=Counter.js.map

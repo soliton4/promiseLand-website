@@ -1,8 +1,0 @@
-{
-"version":3,
-"file":"noDomTitle.js",
-"lineCount":2,
-"mappings":"A;AACAA,MAAA,qFAIG,QAAA,CACDC,CADC,CAECC,CAFD,CAGCC,CAHD,QAMMF,EAAA,aAEIG,QAAAA,GACPC,cAAA,CAAeC,SAAf,CADOF,KAEHG,MACJC,SAAA,CAASC,UAAA,SAAoB,QAAA,CAASC,CAAT,CAAeC,CAAf,CAAuBC,CAAvB,EAC3BT,CAAAU,IAAA,CAAYN,CAAAO,QAAZ,YACAC,WAAA,CAAW,QAAA,GACTZ,CAAAU,IAAA,CAAYN,CAAAO,QAAZ,YADS,CAAX,KAF2B,CAApB,CAAT,CAHOV,CAFJ,eAcYY,QAAAA,CAASC,CAATD,EACfE,SAAA,SAAmBD,CAAnB,CACAZ,eAAA,CAAeC,SAAf,CAFeU,KAGXT,MACFJ,EAAAU,IAAA,CAAYN,CAAAO,QAAZ,YACAC,WAAA,CAAW,QAAA,GACTZ,CAAAU,IAAA,CAAYN,CAAAO,QAAZ,YADS,CAAX,KALaE,CAdZ,EANN,CAJH;",
-"sources":["noDomTitle.js.uncompressed.js"],
-"names":["define","declare","lang","domAttr","startup","inherited","arguments","self","own","watch","attr","oldVal","newVal","set","domNode","setTimeout","_setTitleAttr","title","_set"]
-}
