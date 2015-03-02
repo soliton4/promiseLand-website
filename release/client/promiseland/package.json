@@ -1,0 +1,26 @@
+{
+  "name": "promiseland",
+  "dojoBuild": "profile.js",
+  "version": "0.0.21",
+  "description": "promiseLand is a very promising Language.",
+  "main":"./promiseland",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/soliton4/promiseland.git"
+  },
+  "keywords": [
+    "promise"
+  ],
+  "author": {
+    "name": "Matthias Behrens",
+    "email": "matthias.behrens@gmail.com"
+  },
+  "license": "LGPLv3",
+  "engine": {
+    "node": ">=0.8"
+  },
+  "bugs": {
+    "url": "http://github.com/soliton4/promiseland/issues"
+  },
+  "homepage": "http://promiseland.technology"
+}

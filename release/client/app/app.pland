@@ -1,0 +1,31 @@
+/* dom initialization */
+
+var ReadMore = require "./wgt/ReadMore";
+
+require "./mouseTrack";
+
+var query = require "dojo/query";
+
+var nl = query(".promiseLandCode");
+
+var CodeMirror = require "codemirror4/lib/codemirror";
+var plMode = require "codemirror4/mode/promiseland/promiseland";
+
+nl.forEach((node){
+  var cm = CodeMirror.fromTextArea(node, {
+        mode: "text/promiseland",
+        lineNumbers: true,
+        viewportMargin: Infinity
+      });
+});
+
+
+
+nl = query(".readMore");
+
+nl.forEach((node){
+  var w = new ReadMore({}, node);
+});
+
+
+return {};

@@ -1,0 +1,142 @@
+var basics = require "./basics";
+var errorFun = basics.errorFun;
+var errorMsg = basics.errorMsg;
+var _stringEncodeStr = basics._stringEncodeStr;
+var stringEncodeStr = basics.stringEncodeStr;
+
+
+var loader = function(par){
+  var resStr = "";
+  var i;
+  
+  var modules = [];
+  if (!par.promiseLandModule){    
+    modules.push({
+      varName: "promiseland",
+      moduleName: "promiseland"
+    });
+  };
+  var extraModules = par.extraModules;
+  if (extraModules){
+    var extraModulesAr = extraModules.getArray();
+    for (i = 0; i < extraModulesAr.length; ++i){
+      modules.push({
+        varName: par.variableNames.get(extraModulesAr[i].key),
+        moduleName: extraModulesAr[i].value
+      });
+    };
+  };
+  
+  
+  
+  var moduleFunctionHeadStr = "var __modFun = function(__require";
+  var commonJsModulesStr = "";
+  var amdModulesStr = "";
+  
+  for (i = 0; i < modules.length; ++i){
+    moduleFunctionHeadStr += ", ";
+    moduleFunctionHeadStr += modules[i].varName;
+    commonJsModulesStr += ", ";
+    commonJsModulesStr += "require(";
+    commonJsModulesStr += stringEncodeStr(modules[i].moduleName);
+    commonJsModulesStr += ")";
+    amdModulesStr += ", ";
+    amdModulesStr += stringEncodeStr(modules[i].moduleName);
+  };
+  moduleFunctionHeadStr += "){ __modFun = undefined;\n";
+  
+  
+
+  
+
+  resStr += "(function(){" + moduleFunctionHeadStr;
+  
+  if (par.promiseLandModule){
+    resStr += "var __execute = function(promiseland, extra){ __execute = undefined;\n";
+  }else{
+    resStr += "";
+  };
+  resStr += "\n";
+  if (par.usePromise || par.useRequire){
+    resStr += "var __Promise = promiseland.Promise;\n";
+    resStr += "var Promise = promiseland.Promise;\n";
+  };
+  if (par.useClassSystem){
+    resStr += "var classSystem = promiseland.classSystem;\n";
+  };
+  if (par.useRequire){
+    resStr += "var __requireFun = function(parModule){
+      var returnPromise = new __Promise();
+      try{__require([parModule], function(m){
+        if (promiseland.isPromiseLandPromisingModule(m)){
+          m.then(function(realm){returnPromise.resolve(realm);}, function(e){returnPromise.reject(e);});
+        }else{
+          returnPromise.resolve(m);
+        };
+        }, function(err){ returnPromise.reject(err); });
+      }catch(e){ returnPromise.reject(e); };
+      return returnPromise.promise;};
+    ";
+  };
+  
+  var headerStr = resStr;
+    
+  if (par.promiseLandModule){
+    resStr = "}; return function(){ return __execute.apply(null, arguments); }; };";
+  }else{
+    resStr = "};";
+  };
+  
+  resStr += "
+  
+  if (typeof exports == \"object\" && typeof module == \"object\"){ // CommonJS
+    module.exports = __modFun(function(modulesAr, callback, errBack){
+      // the require function for CommonJs
+      var args = [];
+      try{
+        var i = 0;
+        var l = modulesAr.length;
+        for (i; i < l; ++i){
+          args.push(require(modulesAr[i]));
+        };
+      }catch(e){
+        errBack(e);
+        return;
+      };
+      callback.apply(callback, args);
+    }" + commonJsModulesStr + ");
+  
+  }else if (typeof define == \"function\" && define.amd){ // AMD
+    define([\"require\"" + amdModulesStr + "], __modFun);
+  
+  }else{ // Plain browser env
+    __modFun(function(){ throw { msg: \"require not possible in non loader mode\" }; });
+  
+  };
+})();
+";
+  
+  return {
+    headerStr: headerStr,
+    footerStr: resStr
+  };
+};
+      
+
+  /*resStr += "defineFun([";
+  for (i = 0; i < modules.length; ++i){
+    if (i){
+      resStr += ", ";
+    };
+    resStr += stringEncodeStr(modules[i].moduleName);
+  };
+  resStr += "], function(";
+  for (i = 0; i < modules.length; ++i){
+    if (i){
+      resStr += ", ";
+    };
+    resStr += modules[i].varName;
+  };
+  resStr += "){\n";*/
+
+return loader;

@@ -13,11 +13,11 @@ var __requireFun = function(parModule){
         }, function(err){ returnPromise.reject(err); });
       }catch(e){ returnPromise.reject(e); };
       return returnPromise.promise;};
-    if (promiseland._hasModule({ hashStr: "6d18baaec0a09c5947d4c036a7955133" })){ return promiseland._getModule("6d18baaec0a09c5947d4c036a7955133"); };
+    if (promiseland._hasModule({ hashStr: "8563678dc43236de72d8874d7e6e2e66" })){ return promiseland._getModule("8563678dc43236de72d8874d7e6e2e66"); };
 var PL$1 = new __Promise();
-promiseland._registerModule({ hashStr: "6d18baaec0a09c5947d4c036a7955133", "module": PL$1, promising: true });
-var PL$14/*__dirname*/;try{PL$14/*__dirname*/ = __dirname;}catch(e){};
-var PL$17/*console*/;try{PL$17/*console*/ = console;}catch(e){};
+promiseland._registerModule({ hashStr: "8563678dc43236de72d8874d7e6e2e66", "module": PL$1, promising: true });
+var PL$15/*__dirname*/;try{PL$15/*__dirname*/ = __dirname;}catch(e){};
+var PL$18/*console*/;try{PL$18/*console*/ = console;}catch(e){};
 var PL$2 = (function(){
 "use strict";
 var PL$3/*promiseland exception catcher*/ = function(code){
@@ -32,9 +32,10 @@ var PL$4/*catch rejected*/ = function(e){
 };
 var PL$9/*Fw*/;
 var PL$11/*clientDirs*/;
-var PL$12/*dirs*/;
-var PL$13/*i*/;
-var PL$15/*fw*/;
+var PL$12/*debug*/;
+var PL$13/*dirs*/;
+var PL$14/*i*/;
+var PL$16/*fw*/;
 PL$3/*promiseland exception catcher*/(function(){
 
   ;
@@ -53,28 +54,30 @@ PL$3/*promiseland exception catcher*/(function(){
       "style", 
       "image"
     ];
-    PL$12/*dirs*/ = [
+    PL$12/*debug*/ = false;
+    PL$13/*dirs*/ = [
       
     ];
-    PL$13/*i*/ = 0;
-    for(PL$13/*i*/ = 0;(PL$13/*i*/ < PL$11/*clientDirs*/["length"]);++PL$13/*i*/){{
-      PL$12/*dirs*/["push"]({
-        "client": ("/" + PL$11/*clientDirs*/[PL$13/*i*/]),
-        "server": (((PL$14/*__dirname*/ + "/") + PL$11/*clientDirs*/[PL$13/*i*/]) + "/")
+    PL$14/*i*/ = 0;
+    for(PL$14/*i*/ = 0;(PL$14/*i*/ < PL$11/*clientDirs*/["length"]);++PL$14/*i*/){{
+      PL$13/*dirs*/["push"]({
+        "client": ("/" + PL$11/*clientDirs*/[PL$14/*i*/]),
+        "server": (((PL$15/*__dirname*/ + (PL$12/*debug*/ ? "/" : "/../release/client/")) + PL$11/*clientDirs*/[PL$14/*i*/]) + "/")
       });}};
     ;
-    PL$15/*fw*/ = new PL$9/*Fw*/({
-      "load": "app/wrapper-built",
-      "dirs": PL$12/*dirs*/,
+    PL$16/*fw*/ = new PL$9/*Fw*/({
+      "load": "app/wrapper",
+      "dirs": PL$13/*dirs*/,
       "css": [
         "style/style2.css"
-      ]
+      ],
+      "singleScriptFile": (PL$12/*debug*/ ? undefined : "/dojo/dojo.js")
     });
-    PL$15/*fw*/["listen"](4011);
+    PL$16/*fw*/["listen"](4011);
     PL$5.resolve();}), PL$8);
   ;})();
-  PL$6.then(PL$3/*promiseland exception catcher*/(function(PL$16/*e*/){
-    PL$17/*console*/["log"](PL$16/*e*/);
+  PL$6.then(PL$3/*promiseland exception catcher*/(function(PL$17/*e*/){
+    PL$18/*console*/["log"](PL$17/*e*/);
     PL$5.resolve();;}));
   PL$5.then(PL$3/*promiseland exception catcher*/(function(){;
   ;

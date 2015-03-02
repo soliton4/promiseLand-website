@@ -27,9 +27,10 @@
       "dijit/MenuBar",
       "dijit/MenuBarItem"
     ],
-    optimizeAllPluginResources: false,
+    optimizeAllPluginResources: true,
     exclude: [
       "dojo/selector/_loader", 
+      "dojo/selector/_loader!default", 
       "dojo/query"
     ],
     insertRequire: ["app/wrapper"],

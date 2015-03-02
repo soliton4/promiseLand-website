@@ -1,6 +1,5 @@
 @import url('../dijit/themes/claro/claro.css');
 @import url('../codemirror4/lib/codemirror.css');
-@import "../vast-shadow/vastshadow-regular.css";
 body {
   border: 0;
   margin: 0;

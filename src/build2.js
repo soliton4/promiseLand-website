@@ -35,11 +35,29 @@
     {
       name: "app/wrapper",
 
-      include: ["dojo/dom-construct"]
+      include: [
+        "dojo/dom-construct",
+        "app/backgroundText",
+        "app/callbackHellText",
+        "app/promiseLandText",
+        "app/index",
+        "sol/wgt/CodeMirrorSimple",
+        "codemirror4/mode/javascript/javascript",
+        "codemirror4/mode/promiseland/promiseland",
+        "dijit/MenuBar",
+        "dijit/MenuBarItem"
+      ],
+      excludeShallow: ["dojo/selector/_loader", "dojo/query", "dojo/selector/_loader!default"],
+      exclude: ["dojo/selector/_loader", "dojo/query", "dojo/selector/_loader!default"],
+      optimizeAllPluginResources: true
     }
   ],
+  
+  fileExclusionRegExp: /^_loader/,
+  
+  excludeShallow: ["dojo/selector/_loader", "dojo/query", "dojo/selector/_loader!default"],
 
-  optimizeAllPluginResources: false,
+  optimizeAllPluginResources: true,
   exclude: [
     "dojo/selector/_loader", 
     "dojo/query"

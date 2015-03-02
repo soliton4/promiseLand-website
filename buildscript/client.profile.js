@@ -2,10 +2,10 @@ var profile = (function(){
     return {
         basePath: "../src",
         releaseDir: "../release",
-        //releaseName: "client",
+        releaseName: "client",
         action: "release",
-        layerOptimize: "closure",
-        optimize: "closure",
+        layerOptimize: false,
+        optimize: false,
         cssOptimize: "comments",
         stripConsole: "warn",
         locale: 'en-us',
@@ -20,9 +20,6 @@ var profile = (function(){
             name: "dojox",
             location: "dojox" 
         },{
-            name: "app",
-            location: "app"
-        },{
             name: "sol",
             location: "sol"
         },{
@@ -35,63 +32,56 @@ var profile = (function(){
           name: "image"
         , location: "image"
         }, {
-          name: "promiseland"
-        , location: "promiseland"
+          name: "app"
+        , location: "app"
         }, {
-          name: "vast-shadow"
-        , location: "vast-shadow"
+          name: "promiseland"
+        , location: "../node_modules/promiseland"
+        //, location: "promiseland"
+        }, {
+          name: "frameworkClient"
+        , location: "../node_modules/promiseland-webframework/frameworkClient"
         }],
       
-      //plugins: {
-      //  "main/serverOnly": "build/plugins/serverOnly"
-      //  , "main/clientOnly": "build/plugins/clientOnly"
-        //, "xstyle/css": "xstyle/build/amd-css"
-      //},
-      
-        staticHasFeatures: {
+        /*staticHasFeatures: {
           "dom": 1
           , "host-browser": 1
           , "dojo-firebug": 0
-        },
+        },*/
         defaultConfig: {
-          hasCache:{
+          /*hasCache:{
             "dom": 1
             , "host-browser": 1
             , "dojo-firebug": 0
-          },
+            , "dojo-has-api": 0
+          },*/
           async: 1,
-          deps: [ "app/app" ],
+          deps: [ "frameworkClient/client" ],
           locale: 'en-us'
         },
         layers: {
             "dojo/dojo": {
               include: [ 
-                  "app/app"
-                //, "app/mouseTrack"
-                , "dojo/selector/lite"
-                , "promiseland/main"
-                , "promiseland/promiseland"
-                //, "promiseland/parser"
-                //, "promiseland/_parser" // causes weird error
-                , "promiseland/md5"
-                , "promiseland/main"
-                
-                , "dijit/_WidgetBase"
-                , "dojo/query"
-                , "codemirror4/lib/codemirror"
-                , "codemirror4/mode/promiseland/promiseland"
-                , "app/wgt/ReadMore"
-                
-                , "dojo/_base/declare"
-                , "dojo/dom-class"
-                , "dojo/dom-construct"
-                , "dijit/form/Button"
-                
-                // ?????
-                , "dojo/io-query"
-                , "dojo/json"
-                , "dojo/selector/acme"
-                , "dojo/request/xhr"
+                "dojo/dojo",
+                "app/wrapper",
+                "app/index",
+                "app/wrapper",
+                "dojo/dom-construct",
+                "frameworkClient/client",
+                "frameworkClient/Eventemitter",
+                "app/backgroundText",
+                "app/callbackHellText",
+                "app/promiseLandText",
+                "app/index",
+                "sol/wgt/CodeMirrorSimple",
+                "codemirror4/mode/javascript/javascript",
+                "codemirror4/mode/promiseland/promiseland",
+                "dijit/MenuBar",
+                "dijit/MenuBarItem",
+                "dojo/json",
+                "dojo/io-query",
+                "dojo/selector/acme",
+                "dojo/request/xhr"
               ]
               , boot: true
               , customBase: true

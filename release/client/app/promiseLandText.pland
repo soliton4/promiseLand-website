@@ -1,0 +1,38 @@
+return 'function(){
+  var result;
+  var error;
+  var extraCleanup;
+  try{
+    // access async results with the * operator
+    var userInput = *getUserInteractionPromise();
+    if (userInput == "read File"){
+      // promise adapter for error first callback interfaces
+      var cb = new promiseland.CallbackErrorFirst();
+      fs.readFile("filename", cb);
+      var data = *myDatabase.getDataByFileContent(*cb.promise);
+      result = checkDataIntegrity(data);
+
+    }else if (userInput == "read Url"){
+      extraCleanup = true;
+      *someExtraInitialization();
+      var data = *myDatabase.getDataByUrlContent(*ajax.get("someurl"));
+      result = checkDataIntegrity(data);
+
+    }else{
+      throw "invalid input";
+    };
+    
+  }catch(e){
+    // whenever a promise is rejected or a error is thrown we land here;
+    error = e;
+  };
+  // cleanup
+  *neccessaryCleanup();
+  if (extraCleanup){
+    *extraCleanup();
+  };
+  if (error){
+    throw error;
+  };
+  return result;
+};';

@@ -10,19 +10,24 @@ try{
     "image"
   ];
   
+  var debug = false;
+  
+  
   var dirs = [];
   var i = 0;
   for (i = 0; i < clientDirs.length; ++i){
     dirs.push({
       client: "/" + clientDirs[i],
-      server: __dirname + "/"  + clientDirs[i] + "/"
+      server: __dirname + (debug ? "/" : "/../release/client/")  + clientDirs[i] + "/"
+      //server: __dirname + "/"  + clientDirs[i] + "/"
     });
   };
   
   var fw = new Fw({
-    load: "app/wrapper-built",
+    load: "app/wrapper",
     dirs: dirs,
-    css: ["style/style2.css"]
+    css: ["style/style2.css"],
+    singleScriptFile: debug ? undefined : "/dojo/dojo.js"
   });
   fw.listen(4011);
 }catch(e){
