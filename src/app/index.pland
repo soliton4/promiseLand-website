@@ -97,6 +97,12 @@ var jsmode = require "codemirror4/mode/javascript/javascript";
 var plmode = require "codemirror4/mode/promiseland/promiseland";
 
 
+var description = domConstruct.create("div", {
+  class: "description"
+});
+domConstruct.place(document.createTextNode("promiseLand extends JavaScript - much like c++ extends c or less extends css. It includes EcmaScript 5 strict mode. The main goal is enabling you to focus on your Program logic, weather it includes asynchronous calls or not. The name giving feature is the introduction of the unary dereferencing operator, known from c / c++. By adding a * in front of a expression it is assumed that the espression is a promise. It results in the result of the promise, making the execution wait until the promise is fulfilled."), description);
+domConstruct.place(description, document.body);
+
 
 var cbhell = domConstruct.create("div", {
   class: "cbhell-sign"
@@ -104,18 +110,17 @@ var cbhell = domConstruct.create("div", {
 domConstruct.place(document.createTextNode("callback hell"), cbhell);
 domConstruct.place(cbhell, document.body);
 
+var texts = require "./texts";
+
 
 var cm = new CodeMirror({
   class: "callbackhell",
   theme: "xq-dark",
   mode: "javascript",
-  value: require "./callbackHellText"
+  value: texts[0]
 });
 cm.placeAt(document.body);
 cm.startup();
-/*cm.resize({
-  h: 700
-});*/
 
 
 var pland = domConstruct.create("div", {
@@ -129,13 +134,87 @@ var cm2 = new CodeMirror({
   class: "promiselandcode",
   theme: "solarized",
   mode: "promiseland",
-  value: require "./promiseLandText"
+  value: texts[1]
 });
 cm2.placeAt(document.body);
 cm2.startup();
-/*cm2.resize({
-  w: 450,
-  h: 700
-});*/
 
-//cm.mirror.refresh();
+
+var description = domConstruct.create("div", {
+  class: "description description2"
+});
+domConstruct.place(document.createTextNode("So far so good. Now add another promise, say a user interaction:"), description);
+domConstruct.place(description, document.body);
+
+
+var cm = new CodeMirror({
+  class: "callbackhell callbackhell2",
+  theme: "xq-dark",
+  mode: "javascript",
+  value: texts[2]
+});
+cm.placeAt(document.body);
+cm.startup();
+
+
+var cm2 = new CodeMirror({
+  class: "promiselandcode promiselandcode2",
+  theme: "solarized",
+  mode: "promiseland",
+  value: texts[3]
+});
+cm2.placeAt(document.body);
+cm2.startup();
+
+
+var description = domConstruct.create("div", {
+  class: "description description3"
+});
+domConstruct.place(document.createTextNode("Still doesnt look to bad, but wait! What if something goes wrong?"), description);
+domConstruct.place(description, document.body);
+
+
+var cm = new CodeMirror({
+  class: "callbackhell callbackhell3",
+  theme: "xq-dark",
+  mode: "javascript",
+  value: texts[4]
+});
+cm.placeAt(document.body);
+cm.startup();
+
+
+var cm2 = new CodeMirror({
+  class: "promiselandcode promiselandcode3",
+  theme: "solarized",
+  mode: "promiseland",
+  value: texts[5]
+});
+cm2.placeAt(document.body);
+cm2.startup();
+
+
+var description = domConstruct.create("div", {
+  class: "description description4"
+});
+domConstruct.place(document.createTextNode("See where we are going with this? Now assume you have an Array of filenames and you want to process them in a loop."), description);
+domConstruct.place(description, document.body);
+
+var cm = new CodeMirror({
+  class: "callbackhell callbackhell4",
+  theme: "xq-dark",
+  mode: "javascript",
+  value: texts[6]
+});
+cm.placeAt(document.body);
+cm.startup();
+
+
+var cm2 = new CodeMirror({
+  class: "promiselandcode promiselandcode4",
+  theme: "solarized",
+  mode: "promiseland",
+  value: texts[7]
+});
+cm2.placeAt(document.body);
+cm2.startup();

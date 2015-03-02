@@ -13,9 +13,9 @@ var __requireFun = function(parModule){
         }, function(err){ returnPromise.reject(err); });
       }catch(e){ returnPromise.reject(e); };
       return returnPromise.promise;};
-    if (promiseland._hasModule({ hashStr: "867ac5da4ac0b2524229f6181a6092b0" })){ return promiseland._getModule("867ac5da4ac0b2524229f6181a6092b0"); };
+    if (promiseland._hasModule({ hashStr: "eb34a48a51d83b303cfd3229206cb7e0" })){ return promiseland._getModule("eb34a48a51d83b303cfd3229206cb7e0"); };
 var PL$1 = new __Promise();
-promiseland._registerModule({ hashStr: "867ac5da4ac0b2524229f6181a6092b0", "module": PL$1, promising: true });
+promiseland._registerModule({ hashStr: "eb34a48a51d83b303cfd3229206cb7e0", "module": PL$1, promising: true });
 var PL$5/*console*/;try{PL$5/*console*/ = console;}catch(e){};
 var PL$10/*document*/;try{PL$10/*document*/ = document;}catch(e){};
 var PL$27/*window*/;try{PL$27/*window*/ = window;}catch(e){};
@@ -48,10 +48,12 @@ var PL$26/*barItem*/;
 var PL$28/*CodeMirror*/;
 var PL$30/*jsmode*/;
 var PL$32/*plmode*/;
-var PL$34/*cbhell*/;
-var PL$35/*cm*/;
-var PL$37/*pland*/;
-var PL$38/*cm2*/;
+var PL$34/*description*/;
+var PL$35/*cbhell*/;
+var PL$36/*texts*/;
+var PL$38/*cm*/;
+var PL$39/*pland*/;
+var PL$40/*cm2*/;
 PL$3/*promiseland exception catcher*/(function(){
 
   ;
@@ -144,34 +146,102 @@ PL$3/*promiseland exception catcher*/(function(){
   __requireFun("sol/wgt/CodeMirrorSimple").then(PL$3/*promiseland exception catcher*/(function(PL$29){PL$28/*CodeMirror*/ = PL$29;
   __requireFun("codemirror4/mode/javascript/javascript").then(PL$3/*promiseland exception catcher*/(function(PL$31){PL$30/*jsmode*/ = PL$31;
   __requireFun("codemirror4/mode/promiseland/promiseland").then(PL$3/*promiseland exception catcher*/(function(PL$33){PL$32/*plmode*/ = PL$33;
-  PL$34/*cbhell*/ = PL$7/*domConstruct*/["create"]("div", {
+  PL$34/*description*/ = PL$7/*domConstruct*/["create"]("div", {
+    "class": "description"
+  });
+  PL$7/*domConstruct*/["place"](PL$10/*document*/["createTextNode"]("promiseLand extends JavaScript - much like c++ extends c or less extends css. It includes EcmaScript 5 strict mode. The main goal is enabling you to focus on your Program logic, weather it includes asynchronous calls or not. The name giving feature is the introduction of the unary dereferencing operator, known from c / c++. By adding a * in front of a expression it is assumed that the espression is a promise. It results in the result of the promise, making the execution wait until the promise is fulfilled."), PL$34/*description*/);
+  PL$7/*domConstruct*/["place"](PL$34/*description*/, PL$10/*document*/["body"]);
+  PL$35/*cbhell*/ = PL$7/*domConstruct*/["create"]("div", {
     "class": "cbhell-sign"
   });
-  PL$7/*domConstruct*/["place"](PL$10/*document*/["createTextNode"]("callback hell"), PL$34/*cbhell*/);
-  PL$7/*domConstruct*/["place"](PL$34/*cbhell*/, PL$10/*document*/["body"]);
-  __requireFun("./callbackHellText").then(PL$3/*promiseland exception catcher*/(function(PL$36){PL$35/*cm*/ = new PL$28/*CodeMirror*/({
+  PL$7/*domConstruct*/["place"](PL$10/*document*/["createTextNode"]("callback hell"), PL$35/*cbhell*/);
+  PL$7/*domConstruct*/["place"](PL$35/*cbhell*/, PL$10/*document*/["body"]);
+  __requireFun("./texts").then(PL$3/*promiseland exception catcher*/(function(PL$37){PL$36/*texts*/ = PL$37;
+  PL$38/*cm*/ = new PL$28/*CodeMirror*/({
     "class": "callbackhell",
     "theme": "xq-dark",
     "mode": "javascript",
-    "value": PL$36
+    "value": PL$36/*texts*/[0]
   });
-  PL$35/*cm*/["placeAt"](PL$10/*document*/["body"]);
-  PL$35/*cm*/["startup"]();
-  PL$37/*pland*/ = PL$7/*domConstruct*/["create"]("div", {
+  PL$38/*cm*/["placeAt"](PL$10/*document*/["body"]);
+  PL$38/*cm*/["startup"]();
+  PL$39/*pland*/ = PL$7/*domConstruct*/["create"]("div", {
     "class": "pland-sign"
   });
-  PL$7/*domConstruct*/["place"](PL$10/*document*/["createTextNode"]("promiseland solution"), PL$37/*pland*/);
-  PL$7/*domConstruct*/["place"](PL$37/*pland*/, PL$10/*document*/["body"]);
-  __requireFun("./promiseLandText").then(PL$3/*promiseland exception catcher*/(function(PL$39){PL$38/*cm2*/ = new PL$28/*CodeMirror*/({
+  PL$7/*domConstruct*/["place"](PL$10/*document*/["createTextNode"]("promiseland solution"), PL$39/*pland*/);
+  PL$7/*domConstruct*/["place"](PL$39/*pland*/, PL$10/*document*/["body"]);
+  PL$40/*cm2*/ = new PL$28/*CodeMirror*/({
     "class": "promiselandcode",
     "theme": "solarized",
     "mode": "promiseland",
-    "value": PL$39
+    "value": PL$36/*texts*/[1]
   });
-  PL$38/*cm2*/["placeAt"](PL$10/*document*/["body"]);
-  PL$38/*cm2*/["startup"]();
+  PL$40/*cm2*/["placeAt"](PL$10/*document*/["body"]);
+  PL$40/*cm2*/["startup"]();
+  PL$34/*description*/ = PL$7/*domConstruct*/["create"]("div", {
+    "class": "description description2"
+  });
+  PL$7/*domConstruct*/["place"](PL$10/*document*/["createTextNode"]("So far so good. Now add another promise, say a user interaction:"), PL$34/*description*/);
+  PL$7/*domConstruct*/["place"](PL$34/*description*/, PL$10/*document*/["body"]);
+  PL$38/*cm*/ = new PL$28/*CodeMirror*/({
+    "class": "callbackhell callbackhell2",
+    "theme": "xq-dark",
+    "mode": "javascript",
+    "value": PL$36/*texts*/[2]
+  });
+  PL$38/*cm*/["placeAt"](PL$10/*document*/["body"]);
+  PL$38/*cm*/["startup"]();
+  PL$40/*cm2*/ = new PL$28/*CodeMirror*/({
+    "class": "promiselandcode promiselandcode2",
+    "theme": "solarized",
+    "mode": "promiseland",
+    "value": PL$36/*texts*/[3]
+  });
+  PL$40/*cm2*/["placeAt"](PL$10/*document*/["body"]);
+  PL$40/*cm2*/["startup"]();
+  PL$34/*description*/ = PL$7/*domConstruct*/["create"]("div", {
+    "class": "description description3"
+  });
+  PL$7/*domConstruct*/["place"](PL$10/*document*/["createTextNode"]("Still doesnt look to bad, but wait! What if something goes wrong?"), PL$34/*description*/);
+  PL$7/*domConstruct*/["place"](PL$34/*description*/, PL$10/*document*/["body"]);
+  PL$38/*cm*/ = new PL$28/*CodeMirror*/({
+    "class": "callbackhell callbackhell3",
+    "theme": "xq-dark",
+    "mode": "javascript",
+    "value": PL$36/*texts*/[4]
+  });
+  PL$38/*cm*/["placeAt"](PL$10/*document*/["body"]);
+  PL$38/*cm*/["startup"]();
+  PL$40/*cm2*/ = new PL$28/*CodeMirror*/({
+    "class": "promiselandcode promiselandcode3",
+    "theme": "solarized",
+    "mode": "promiseland",
+    "value": PL$36/*texts*/[5]
+  });
+  PL$40/*cm2*/["placeAt"](PL$10/*document*/["body"]);
+  PL$40/*cm2*/["startup"]();
+  PL$34/*description*/ = PL$7/*domConstruct*/["create"]("div", {
+    "class": "description description4"
+  });
+  PL$7/*domConstruct*/["place"](PL$10/*document*/["createTextNode"]("See where we are going with this? Now assume you have an Array of filenames and you want to process them in a loop."), PL$34/*description*/);
+  PL$7/*domConstruct*/["place"](PL$34/*description*/, PL$10/*document*/["body"]);
+  PL$38/*cm*/ = new PL$28/*CodeMirror*/({
+    "class": "callbackhell callbackhell4",
+    "theme": "xq-dark",
+    "mode": "javascript",
+    "value": PL$36/*texts*/[6]
+  });
+  PL$38/*cm*/["placeAt"](PL$10/*document*/["body"]);
+  PL$38/*cm*/["startup"]();
+  PL$40/*cm2*/ = new PL$28/*CodeMirror*/({
+    "class": "promiselandcode promiselandcode4",
+    "theme": "solarized",
+    "mode": "promiseland",
+    "value": PL$36/*texts*/[7]
+  });
+  PL$40/*cm2*/["placeAt"](PL$10/*document*/["body"]);
+  PL$40/*cm2*/["startup"]();
   PL$1.resolve(); return;}), PL$4/*catch rejected*/);
-  ;}), PL$4/*catch rejected*/);
   ;}), PL$4/*catch rejected*/);
   ;}), PL$4/*catch rejected*/);
   ;}), PL$4/*catch rejected*/);

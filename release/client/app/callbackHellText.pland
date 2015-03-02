@@ -1,4 +1,11 @@
-return 'function(){
+return [
+'var result;
+readFile.then(function(parRes){
+  result = parRes;
+  processFile(result);
+});',
+  
+'function(){
   mainTask = new Promise();
   
   // helper functions to prevent the code from completely blowing up
@@ -107,4 +114,4 @@ return 'function(){
     rejectWithCleanup("user breakup");
   });
   return mainTask;
-};';
+};'];

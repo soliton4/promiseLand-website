@@ -71,6 +71,7 @@ var profile = (function(){
                 "frameworkClient/Eventemitter",
                 "app/backgroundText",
                 "app/callbackHellText",
+                "app/texts",
                 "app/promiseLandText",
                 "app/index",
                 "sol/wgt/CodeMirrorSimple",

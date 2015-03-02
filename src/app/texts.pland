@@ -1,0 +1,64 @@
+return [
+  //0
+'var result;
+readFile().then(function(parRes){
+  result = parRes;
+  processFile(result);
+});',
+  //1
+'var result = *readFile();
+processFile(result);', 
+  //2
+'userInput().then(function(doIt){
+  if (doIt){
+    var result;
+    readFile().then(function(parRes){
+      result = parRes;
+      processFile(result);
+    });
+  };
+});',
+  //3
+'if (*userInput()){
+  var result = *readFile();
+  processFile(result);
+};',
+  //4
+'function errorCatcher(e){
+  console.log("something went wrong: " + e);
+};
+userInput().then(function(doIt){
+  if (doIt){
+    var result;
+    readFile().then(function(parRes){
+      try{
+        result = parRes;
+        processFile(result);
+      }catch(e){
+        errorCatcher(e);
+      };
+    }, errorCatcher);
+  };
+}, errorCatcher);', 
+  //5
+'try{
+  if (*userInput()){
+    var result = *readFile();
+    processFile(result);
+  };
+}catch(e){
+  console.log("something went wrong: " + e);
+};',
+  //6
+'// U Wot M8?!', 
+  //7
+'for(var i = 0; i < files.length; ++i){
+  try{
+    if (*userInput(files[i])){
+      var result = *readFile(files[i]);
+      processFile(result);
+    };
+  }catch(e){
+    console.log("something went wrong with file: " + files[i] + " " + e);
+  };
+};'];

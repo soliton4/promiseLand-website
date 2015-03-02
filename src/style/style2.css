@@ -18,7 +18,7 @@ body {
   right: 0;
   bottom: 0;
   background-color: #000020;
-  color: #337;
+  color: #004;
   Word-Wrap: Break-word;
   overflow: hidden;
   z-Index: 0;
@@ -56,9 +56,24 @@ body {
   color: #FFF;
   text-shadow: 2px 2px 2px #000000;
 }
-.cbhell-sign {
+.description {
   position: absolute;
   top: 120px;
+  left: 2%;
+  height: 170px;
+  width: 800px;
+  background-color: #337;
+  border-radius: 5px;
+  color: #FEE;
+  padding-right: 10px;
+  padding-left: 10px;
+  padding-top: 3px;
+  font-size: 18px;
+  z-Index: 10;
+}
+.cbhell-sign {
+  position: absolute;
+  top: 300px;
   left: 2%;
   height: 30px;
   background-color: #337;
@@ -73,7 +88,7 @@ body {
 }
 .pland-sign {
   position: absolute;
-  top: 120px;
+  top: 300px;
   left: 51%;
   height: 30px;
   background-color: #337;
@@ -89,10 +104,10 @@ body {
 .callbackhell {
   z-Index: 20;
   position: absolute;
-  top: 150px;
+  top: 330px;
   left: 2%;
   width: 47%;
-  height: 700px;
+  height: 100px;
 }
 .callbackhell .CodeMirror::before {
   content: "";
@@ -102,18 +117,18 @@ body {
   right: 0;
   bottom: 0;
   background-image: url("../image/hell1.png");
-  opacity: 0.4;
+  opacity: 0.1;
 }
 .callbackhell .CodeMirror {
-  height: 700px;
+  height: 100px;
 }
 .promiselandcode {
   z-Index: 20;
   position: absolute;
-  top: 150px;
+  top: 330px;
   left: 51%;
   width: 47%;
-  height: 700px;
+  height: 100px;
 }
 .promiselandcode .CodeMirror::before {
   content: "";
@@ -127,5 +142,61 @@ body {
   opacity: 0.35;
 }
 .promiselandcode .CodeMirror {
-  height: 700px;
+  height: 100px;
+}
+.description2 {
+  position: absolute;
+  top: 450px;
+  left: 2%;
+  height: 30px;
+  width: 800px;
+  background-color: #337;
+  border-radius: 5px;
+  color: #FEE;
+  padding-right: 10px;
+  padding-left: 10px;
+  padding-top: 3px;
+  font-size: 18px;
+  z-Index: 10;
+}
+.callbackhell2,
+.promiselandcode2 {
+  top: 500px;
+}
+.callbackhell2 .CodeMirror,
+.promiselandcode2 .CodeMirror {
+  height: 130px;
+}
+.callbackhell2 .CodeMirror::before {
+  opacity: 0.2;
+}
+.description3 {
+  top: 650px;
+  height: 30px;
+}
+.callbackhell3,
+.promiselandcode3 {
+  top: 700px;
+}
+.callbackhell3 .CodeMirror,
+.promiselandcode3 .CodeMirror {
+  height: 220px;
+}
+.callbackhell3 .CodeMirror::before {
+  opacity: 0.5;
+}
+.description4 {
+  top: 940px;
+  height: 50px;
+}
+.callbackhell4,
+.promiselandcode4 {
+  top: 1010px;
+}
+.callbackhell4 .CodeMirror,
+.promiselandcode4 .CodeMirror {
+  height: 200px;
+}
+.callbackhell4 .CodeMirror::before {
+  opacity: 0.8;
 }

@@ -2034,9 +2034,9 @@ var __requireFun = function(parModule){
         }, function(err){ returnPromise.reject(err); });
       }catch(e){ returnPromise.reject(e); };
       return returnPromise.promise;};
-    if (promiseland._hasModule({ hashStr: "867ac5da4ac0b2524229f6181a6092b0" })){ return promiseland._getModule("867ac5da4ac0b2524229f6181a6092b0"); };
+    if (promiseland._hasModule({ hashStr: "eb34a48a51d83b303cfd3229206cb7e0" })){ return promiseland._getModule("eb34a48a51d83b303cfd3229206cb7e0"); };
 var PL$1 = new __Promise();
-promiseland._registerModule({ hashStr: "867ac5da4ac0b2524229f6181a6092b0", "module": PL$1, promising: true });
+promiseland._registerModule({ hashStr: "eb34a48a51d83b303cfd3229206cb7e0", "module": PL$1, promising: true });
 var PL$5/*console*/;try{PL$5/*console*/ = console;}catch(e){};
 var PL$10/*document*/;try{PL$10/*document*/ = document;}catch(e){};
 var PL$27/*window*/;try{PL$27/*window*/ = window;}catch(e){};
@@ -2069,10 +2069,12 @@ var PL$26/*barItem*/;
 var PL$28/*CodeMirror*/;
 var PL$30/*jsmode*/;
 var PL$32/*plmode*/;
-var PL$34/*cbhell*/;
-var PL$35/*cm*/;
-var PL$37/*pland*/;
-var PL$38/*cm2*/;
+var PL$34/*description*/;
+var PL$35/*cbhell*/;
+var PL$36/*texts*/;
+var PL$38/*cm*/;
+var PL$39/*pland*/;
+var PL$40/*cm2*/;
 PL$3/*promiseland exception catcher*/(function(){
 
   ;
@@ -2165,34 +2167,102 @@ PL$3/*promiseland exception catcher*/(function(){
   __requireFun("sol/wgt/CodeMirrorSimple").then(PL$3/*promiseland exception catcher*/(function(PL$29){PL$28/*CodeMirror*/ = PL$29;
   __requireFun("codemirror4/mode/javascript/javascript").then(PL$3/*promiseland exception catcher*/(function(PL$31){PL$30/*jsmode*/ = PL$31;
   __requireFun("codemirror4/mode/promiseland/promiseland").then(PL$3/*promiseland exception catcher*/(function(PL$33){PL$32/*plmode*/ = PL$33;
-  PL$34/*cbhell*/ = PL$7/*domConstruct*/["create"]("div", {
+  PL$34/*description*/ = PL$7/*domConstruct*/["create"]("div", {
+    "class": "description"
+  });
+  PL$7/*domConstruct*/["place"](PL$10/*document*/["createTextNode"]("promiseLand extends JavaScript - much like c++ extends c or less extends css. It includes EcmaScript 5 strict mode. The main goal is enabling you to focus on your Program logic, weather it includes asynchronous calls or not. The name giving feature is the introduction of the unary dereferencing operator, known from c / c++. By adding a * in front of a expression it is assumed that the espression is a promise. It results in the result of the promise, making the execution wait until the promise is fulfilled."), PL$34/*description*/);
+  PL$7/*domConstruct*/["place"](PL$34/*description*/, PL$10/*document*/["body"]);
+  PL$35/*cbhell*/ = PL$7/*domConstruct*/["create"]("div", {
     "class": "cbhell-sign"
   });
-  PL$7/*domConstruct*/["place"](PL$10/*document*/["createTextNode"]("callback hell"), PL$34/*cbhell*/);
-  PL$7/*domConstruct*/["place"](PL$34/*cbhell*/, PL$10/*document*/["body"]);
-  __requireFun("./callbackHellText").then(PL$3/*promiseland exception catcher*/(function(PL$36){PL$35/*cm*/ = new PL$28/*CodeMirror*/({
+  PL$7/*domConstruct*/["place"](PL$10/*document*/["createTextNode"]("callback hell"), PL$35/*cbhell*/);
+  PL$7/*domConstruct*/["place"](PL$35/*cbhell*/, PL$10/*document*/["body"]);
+  __requireFun("./texts").then(PL$3/*promiseland exception catcher*/(function(PL$37){PL$36/*texts*/ = PL$37;
+  PL$38/*cm*/ = new PL$28/*CodeMirror*/({
     "class": "callbackhell",
     "theme": "xq-dark",
     "mode": "javascript",
-    "value": PL$36
+    "value": PL$36/*texts*/[0]
   });
-  PL$35/*cm*/["placeAt"](PL$10/*document*/["body"]);
-  PL$35/*cm*/["startup"]();
-  PL$37/*pland*/ = PL$7/*domConstruct*/["create"]("div", {
+  PL$38/*cm*/["placeAt"](PL$10/*document*/["body"]);
+  PL$38/*cm*/["startup"]();
+  PL$39/*pland*/ = PL$7/*domConstruct*/["create"]("div", {
     "class": "pland-sign"
   });
-  PL$7/*domConstruct*/["place"](PL$10/*document*/["createTextNode"]("promiseland solution"), PL$37/*pland*/);
-  PL$7/*domConstruct*/["place"](PL$37/*pland*/, PL$10/*document*/["body"]);
-  __requireFun("./promiseLandText").then(PL$3/*promiseland exception catcher*/(function(PL$39){PL$38/*cm2*/ = new PL$28/*CodeMirror*/({
+  PL$7/*domConstruct*/["place"](PL$10/*document*/["createTextNode"]("promiseland solution"), PL$39/*pland*/);
+  PL$7/*domConstruct*/["place"](PL$39/*pland*/, PL$10/*document*/["body"]);
+  PL$40/*cm2*/ = new PL$28/*CodeMirror*/({
     "class": "promiselandcode",
     "theme": "solarized",
     "mode": "promiseland",
-    "value": PL$39
+    "value": PL$36/*texts*/[1]
   });
-  PL$38/*cm2*/["placeAt"](PL$10/*document*/["body"]);
-  PL$38/*cm2*/["startup"]();
+  PL$40/*cm2*/["placeAt"](PL$10/*document*/["body"]);
+  PL$40/*cm2*/["startup"]();
+  PL$34/*description*/ = PL$7/*domConstruct*/["create"]("div", {
+    "class": "description description2"
+  });
+  PL$7/*domConstruct*/["place"](PL$10/*document*/["createTextNode"]("So far so good. Now add another promise, say a user interaction:"), PL$34/*description*/);
+  PL$7/*domConstruct*/["place"](PL$34/*description*/, PL$10/*document*/["body"]);
+  PL$38/*cm*/ = new PL$28/*CodeMirror*/({
+    "class": "callbackhell callbackhell2",
+    "theme": "xq-dark",
+    "mode": "javascript",
+    "value": PL$36/*texts*/[2]
+  });
+  PL$38/*cm*/["placeAt"](PL$10/*document*/["body"]);
+  PL$38/*cm*/["startup"]();
+  PL$40/*cm2*/ = new PL$28/*CodeMirror*/({
+    "class": "promiselandcode promiselandcode2",
+    "theme": "solarized",
+    "mode": "promiseland",
+    "value": PL$36/*texts*/[3]
+  });
+  PL$40/*cm2*/["placeAt"](PL$10/*document*/["body"]);
+  PL$40/*cm2*/["startup"]();
+  PL$34/*description*/ = PL$7/*domConstruct*/["create"]("div", {
+    "class": "description description3"
+  });
+  PL$7/*domConstruct*/["place"](PL$10/*document*/["createTextNode"]("Still doesnt look to bad, but wait! What if something goes wrong?"), PL$34/*description*/);
+  PL$7/*domConstruct*/["place"](PL$34/*description*/, PL$10/*document*/["body"]);
+  PL$38/*cm*/ = new PL$28/*CodeMirror*/({
+    "class": "callbackhell callbackhell3",
+    "theme": "xq-dark",
+    "mode": "javascript",
+    "value": PL$36/*texts*/[4]
+  });
+  PL$38/*cm*/["placeAt"](PL$10/*document*/["body"]);
+  PL$38/*cm*/["startup"]();
+  PL$40/*cm2*/ = new PL$28/*CodeMirror*/({
+    "class": "promiselandcode promiselandcode3",
+    "theme": "solarized",
+    "mode": "promiseland",
+    "value": PL$36/*texts*/[5]
+  });
+  PL$40/*cm2*/["placeAt"](PL$10/*document*/["body"]);
+  PL$40/*cm2*/["startup"]();
+  PL$34/*description*/ = PL$7/*domConstruct*/["create"]("div", {
+    "class": "description description4"
+  });
+  PL$7/*domConstruct*/["place"](PL$10/*document*/["createTextNode"]("See where we are going with this? Now assume you have an Array of filenames and you want to process them in a loop."), PL$34/*description*/);
+  PL$7/*domConstruct*/["place"](PL$34/*description*/, PL$10/*document*/["body"]);
+  PL$38/*cm*/ = new PL$28/*CodeMirror*/({
+    "class": "callbackhell callbackhell4",
+    "theme": "xq-dark",
+    "mode": "javascript",
+    "value": PL$36/*texts*/[6]
+  });
+  PL$38/*cm*/["placeAt"](PL$10/*document*/["body"]);
+  PL$38/*cm*/["startup"]();
+  PL$40/*cm2*/ = new PL$28/*CodeMirror*/({
+    "class": "promiselandcode promiselandcode4",
+    "theme": "solarized",
+    "mode": "promiseland",
+    "value": PL$36/*texts*/[7]
+  });
+  PL$40/*cm2*/["placeAt"](PL$10/*document*/["body"]);
+  PL$40/*cm2*/["startup"]();
   PL$1.resolve(); return;}), PL$4/*catch rejected*/);
-  ;}), PL$4/*catch rejected*/);
   ;}), PL$4/*catch rejected*/);
   ;}), PL$4/*catch rejected*/);
   ;}), PL$4/*catch rejected*/);
@@ -16914,12 +16984,64 @@ var PL$1 = (function(){
 'app/callbackHellText':function(){
 (function(){var __modFun = function(__require, promiseland){ __modFun = undefined;
 
-if (promiseland._hasModule({ hashStr: "52f5a9077563c159ba5f4d93557d1a9f" })){ return promiseland._getModule("52f5a9077563c159ba5f4d93557d1a9f"); };
+if (promiseland._hasModule({ hashStr: "ce94850f3cfc3ea12d0142e99239d128" })){ return promiseland._getModule("ce94850f3cfc3ea12d0142e99239d128"); };
 var PL$1 = (function(){
 "use strict";
 
   ;
-  return "function(){\n  mainTask = new Promise();\n  \n  // helper functions to prevent the code from completely blowing up\n  function resolveWithCleanup(data, extrastep){\n    try{\n      neccessaryCleanup().then(function(){\n        if (extrastep){\n          try{\n            extraCleanup().then(function(){\n              mainTask.resolve(data);\n            }, function(reason){\n              mainTask.reject(reason);\n            });\n          }catch(e){\n            mainTask.reject(e);\n          };\n        }else{\n          mainTask.resolve(data);\n        };\n      }, function(reason){\n        mainTask.reject(reason);\n      });\n    }catch(e){\n      mainTask.reject(e);\n    };\n  };\n  function rejectWithCleanup(reason, extrastep){\n    try{\n      neccessaryCleanup().then(function(){\n        if (extrastep){\n          try{\n            extraCleanup().then(function(){\n              mainTask.reject(reason);\n            }, function(reason){\n              mainTask.reject(reason);\n            });\n          }catch(e){\n            mainTask.reject(e);\n          };\n        }else{\n          mainTask.reject(reason);\n        };\n      }, function(reason){\n        mainTask.reject(reason);\n      });\n    }catch(e){\n      mainTask.reject(e);\n    };\n  };\n  \n  // the main logic\n  getUserInteractionPromise().then(function(userInput){\n\n    if (userInput == \"read File\"){\n      fs.readFile(\"filename\", function(err, fileRes){\n        try{\n          if (err){\n            rejectWithCleanup(err);\n            return;\n          };\n          myDatabase.getDataByFileContent(fileRes).then(function(data){\n            try{\n              data = checkDataIntegrity(data);\n              resolveWithCleanup(data);\n            }catch(e){\n              rejectWithCleanup(e);\n            };\n          }, function(dbReason){\n            rejectWithCleanup(dbReason);\n          });\n        }catch(e){\n          rejectWithCleanup(e);\n        };\n      });\n\n    }else if (userInput == \"read Url\"){\n      someExtraInitialization().then(function(){\n        ajax.get(\"someurl\").then(function(ajaxData){\n          try{\n            myDatabase.getDataByUrlContent(ajaxData).then(function(data){\n              try{\n                data = checkDataIntegrity(data);\n                resolveWithCleanup(data, true); // extra cleanup neccessary from now on\n              }catch(e){\n                rejectWithCleanup(e, true);\n              };\n            }, function(dbReason){\n              rejectWithCleanup(dbReason, true);\n            });\n          }catch(e){\n            rejectWithCleanup(e, true);\n          };\n        }, function(reason){\n          rejectWithCleanup(reason, true); \n        });\n      }, function(reason){\n        rejectWithCleanup(reason, true); // extra cleanup neccessary\n      });\n\n    }else{\n      rejectWithCleanup(\"invalid input\");\n    };\n\n  }, function(){\n    // cancel\n    rejectWithCleanup(\"user breakup\");\n  });\n  return mainTask;\n};";
+  return [
+    "var result;\nreadFile.then(function(parRes){\n  result = parRes;\n  processFile(result);\n});", 
+    "function(){\n  mainTask = new Promise();\n  \n  // helper functions to prevent the code from completely blowing up\n  function resolveWithCleanup(data, extrastep){\n    try{\n      neccessaryCleanup().then(function(){\n        if (extrastep){\n          try{\n            extraCleanup().then(function(){\n              mainTask.resolve(data);\n            }, function(reason){\n              mainTask.reject(reason);\n            });\n          }catch(e){\n            mainTask.reject(e);\n          };\n        }else{\n          mainTask.resolve(data);\n        };\n      }, function(reason){\n        mainTask.reject(reason);\n      });\n    }catch(e){\n      mainTask.reject(e);\n    };\n  };\n  function rejectWithCleanup(reason, extrastep){\n    try{\n      neccessaryCleanup().then(function(){\n        if (extrastep){\n          try{\n            extraCleanup().then(function(){\n              mainTask.reject(reason);\n            }, function(reason){\n              mainTask.reject(reason);\n            });\n          }catch(e){\n            mainTask.reject(e);\n          };\n        }else{\n          mainTask.reject(reason);\n        };\n      }, function(reason){\n        mainTask.reject(reason);\n      });\n    }catch(e){\n      mainTask.reject(e);\n    };\n  };\n  \n  // the main logic\n  getUserInteractionPromise().then(function(userInput){\n\n    if (userInput == \"read File\"){\n      fs.readFile(\"filename\", function(err, fileRes){\n        try{\n          if (err){\n            rejectWithCleanup(err);\n            return;\n          };\n          myDatabase.getDataByFileContent(fileRes).then(function(data){\n            try{\n              data = checkDataIntegrity(data);\n              resolveWithCleanup(data);\n            }catch(e){\n              rejectWithCleanup(e);\n            };\n          }, function(dbReason){\n            rejectWithCleanup(dbReason);\n          });\n        }catch(e){\n          rejectWithCleanup(e);\n        };\n      });\n\n    }else if (userInput == \"read Url\"){\n      someExtraInitialization().then(function(){\n        ajax.get(\"someurl\").then(function(ajaxData){\n          try{\n            myDatabase.getDataByUrlContent(ajaxData).then(function(data){\n              try{\n                data = checkDataIntegrity(data);\n                resolveWithCleanup(data, true); // extra cleanup neccessary from now on\n              }catch(e){\n                rejectWithCleanup(e, true);\n              };\n            }, function(dbReason){\n              rejectWithCleanup(dbReason, true);\n            });\n          }catch(e){\n            rejectWithCleanup(e, true);\n          };\n        }, function(reason){\n          rejectWithCleanup(reason, true); \n        });\n      }, function(reason){\n        rejectWithCleanup(reason, true); // extra cleanup neccessary\n      });\n\n    }else{\n      rejectWithCleanup(\"invalid input\");\n    };\n\n  }, function(){\n    // cancel\n    rejectWithCleanup(\"user breakup\");\n  });\n  return mainTask;\n};"
+  ];
+  ;})();
+;return PL$1;
+};
+  
+  if (typeof exports == "object" && typeof module == "object"){ // CommonJS
+    module.exports = __modFun(function(modulesAr, callback, errBack){
+      // the require function for CommonJs
+      var args = [];
+      try{
+        var i = 0;
+        var l = modulesAr.length;
+        for (i; i < l; ++i){
+          args.push(require(modulesAr[i]));
+        };
+      }catch(e){
+        errBack(e);
+        return;
+      };
+      callback.apply(callback, args);
+    }, require("promiseland"));
+  
+  }else if (typeof define == "function" && define.amd){ // AMD
+    define(["require", "promiseland"], __modFun);
+  
+  }else{ // Plain browser env
+    __modFun(function(){ throw { msg: "require not possible in non loader mode" }; });
+  
+  };
+})();
+
+},
+'app/texts':function(){
+(function(){var __modFun = function(__require, promiseland){ __modFun = undefined;
+
+if (promiseland._hasModule({ hashStr: "339617465004d969a596df4d2a0c03ed" })){ return promiseland._getModule("339617465004d969a596df4d2a0c03ed"); };
+var PL$1 = (function(){
+"use strict";
+
+  ;
+  return [
+    "var result;\nreadFile().then(function(parRes){\n  result = parRes;\n  processFile(result);\n});", 
+    "var result = *readFile();\nprocessFile(result);", 
+    "userInput().then(function(doIt){\n  if (doIt){\n    var result;\n    readFile().then(function(parRes){\n      result = parRes;\n      processFile(result);\n    });\n  };\n});", 
+    "if (*userInput()){\n  var result = *readFile();\n  processFile(result);\n};", 
+    "function errorCatcher(e){\n  console.log(\"something went wrong: \" + e);\n};\nuserInput().then(function(doIt){\n  if (doIt){\n    var result;\n    readFile().then(function(parRes){\n      try{\n        result = parRes;\n        processFile(result);\n      }catch(e){\n        errorCatcher(e);\n      };\n    }, errorCatcher);\n  };\n}, errorCatcher);", 
+    "try{\n  if (*userInput()){\n    var result = *readFile();\n    processFile(result);\n  };\n}catch(e){\n  console.log(\"something went wrong: \" + e);\n};", 
+    "// U Wot M8?!", 
+    "for(var i = 0; i < files.length; ++i){\n  try{\n    if (*userInput(files[i])){\n      var result = *readFile(files[i]);\n      processFile(result);\n    };\n  }catch(e){\n    console.log(\"something went wrong with file: \" + files[i] + \" \" + e);\n  };\n};"
+  ];
   ;})();
 ;return PL$1;
 };

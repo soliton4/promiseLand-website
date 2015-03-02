@@ -1,4 +1,4 @@
-Build started: Mon Mar 02 2015 02:29:59 GMT+0100 (CET)
+Build started: Tue Mar 03 2015 00:41:34 GMT+0100 (CET)
 Build application version: 1.10.0-pre (NaN)
 Messages:
 info(100) Assumed module uses legacy loader API.
@@ -1620,6 +1620,7 @@ dojo/dojo:
 	frameworkClient/Eventemitter
 	app/backgroundText
 	app/callbackHellText
+	app/texts
 	app/promiseLandText
 	sol/wgt/CodeMirrorSimple
 	dojo/_base/declare
@@ -1703,4 +1704,4 @@ dojo/dojo:
 Process finished normally
 	errors: 11
 	warnings: 218
-	build time: 12.571 seconds
+	build time: 12.852 seconds
