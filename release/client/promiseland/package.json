@@ -3,7 +3,7 @@
   "dojoBuild": "profile.js",
   "version": "0.0.21",
   "description": "promiseLand is a very promising Language.",
-  "main":"./promiseland",
+  "main": "./promiseland",
   "repository": {
     "type": "git",
     "url": "https://github.com/soliton4/promiseland.git"
@@ -22,5 +22,13 @@
   "bugs": {
     "url": "http://github.com/soliton4/promiseland/issues"
   },
-  "homepage": "http://promiseland.technology"
+  "homepage": "http://promiseland.technology",
+  "readme": "promiseLand\n===========\n\npromiseLand is a very promising Language\n\nplease visit promise-land.org for more infos",
+  "readmeFilename": "README.md",
+  "_id": "promiseland@0.0.21",
+  "dist": {
+    "shasum": "8c9eaae1879993d26ad6a8f80f7a35ae6477036a"
+  },
+  "_from": "promiseland@0.0.21",
+  "_resolved": "https://registry.npmjs.org/promiseland/-/promiseland-0.0.21.tgz"
 }

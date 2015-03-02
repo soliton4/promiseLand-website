@@ -11,7 +11,7 @@ var profile = (function(){
 	return {
 		resourceTags:{
 			test: function(filename, mid){
-				return testResourceRe.test(mid) || mid=="dijit/robot" || mid=="dijit/robotx";
+				return testResourceRe.test(mid);
 			},
 
 			copyOnly: function(filename, mid){

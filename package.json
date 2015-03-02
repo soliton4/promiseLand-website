@@ -8,8 +8,8 @@
   "description": "promiseLand is a very promising Language",
   "main": "./lib/app.js",
   "dependencies": {
-    "promiseland": "0.0.20",
-    "promiseland-webframework": "0.1.8"
+    "promiseland": "0.0.21",
+    "promiseland-webframework": "0.1.9"
   },
   "keywords": [
     "promiseLand"
