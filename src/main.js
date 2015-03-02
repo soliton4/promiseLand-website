@@ -13,9 +13,9 @@ var __requireFun = function(parModule){
         }, function(err){ returnPromise.reject(err); });
       }catch(e){ returnPromise.reject(e); };
       return returnPromise.promise;};
-    if (promiseland._hasModule({ hashStr: "8563678dc43236de72d8874d7e6e2e66" })){ return promiseland._getModule("8563678dc43236de72d8874d7e6e2e66"); };
+    if (promiseland._hasModule({ hashStr: "bba6a265985364860e22f46322e9b905" })){ return promiseland._getModule("bba6a265985364860e22f46322e9b905"); };
 var PL$1 = new __Promise();
-promiseland._registerModule({ hashStr: "8563678dc43236de72d8874d7e6e2e66", "module": PL$1, promising: true });
+promiseland._registerModule({ hashStr: "bba6a265985364860e22f46322e9b905", "module": PL$1, promising: true });
 var PL$15/*__dirname*/;try{PL$15/*__dirname*/ = __dirname;}catch(e){};
 var PL$18/*console*/;try{PL$18/*console*/ = console;}catch(e){};
 var PL$2 = (function(){
@@ -73,7 +73,7 @@ PL$3/*promiseland exception catcher*/(function(){
       ],
       "singleScriptFile": (PL$12/*debug*/ ? undefined : "/dojo/dojo.js")
     });
-    PL$16/*fw*/["listen"](4011);
+    PL$16/*fw*/["listen"](8080);
     PL$5.resolve();}), PL$8);
   ;})();
   PL$6.then(PL$3/*promiseland exception catcher*/(function(PL$17/*e*/){

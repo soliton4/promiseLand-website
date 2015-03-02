@@ -29,7 +29,7 @@ try{
     css: ["style/style2.css"],
     singleScriptFile: debug ? undefined : "/dojo/dojo.js"
   });
-  fw.listen(4011);
+  fw.listen(8080);
 }catch(e){
   console.log(e);
 };
